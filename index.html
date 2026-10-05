@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Report Template Designs</title>
+<style>
+  :root { --bg:#f3f4f6; --panel:#fff; --ink:#111827; --muted:#4b5563; --line:#d1d5db; --accent:#111827; }
+  * { box-sizing:border-box; }
+  html, body { height:100%; }
+  body { margin:0; font-family:"Segoe UI", system-ui, -apple-system, Arial, sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:#1d4ed8; }
+  header { background:var(--panel); border-bottom:1px solid var(--line); padding:14px 20px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 20px; position:sticky; top:0; z-index:5; }
+  header h1 { margin:0; font-size:18px; }
+  header p { margin:2px 0 0; font-size:13px; color:var(--muted); }
+  .spacer { flex:1; }
+  .tabs { display:flex; gap:6px; }
+  button { font:inherit; cursor:pointer; }
+  .tabs button, .seg button { font-size:14px; padding:7px 14px; border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; }
+  .tabs button[aria-selected="true"], .seg button[aria-selected="true"] { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+  button:focus-visible, select:focus-visible, input:focus-visible, .card:focus-visible, .cell:focus-visible { outline:3px solid #60a5fa; outline-offset:2px; }
+
+  #overview { padding:24px 20px 48px; max-width:1240px; margin:0 auto; }
+  h2.sec { font-size:17px; margin:34px 0 12px; }
+  h2.sec:first-child { margin-top:0; }
+  .lead { color:var(--muted); font-size:14px; margin:-4px 0 16px; max-width:760px; line-height:1.5; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; text-align:left; padding:0; color:inherit; display:flex; flex-direction:column; }
+  .card:hover { border-color:#6b7280; box-shadow:0 6px 20px rgba(0,0,0,.08); }
+  .card .th { background:#9aa3ad; height:300px; overflow:hidden; }
+  .card .th img { width:100%; display:block; }
+  .card .bd { padding:12px 14px 14px; }
+  .card h3 { margin:0 0 4px; font-size:16px; display:flex; align-items:center; gap:8px; }
+  .sw { display:inline-block; width:12px; height:12px; border-radius:3px; }
+  .card p { margin:0 0 8px; font-size:13.5px; line-height:1.45; color:var(--muted); }
+  .card ul { margin:0 0 8px; padding-left:18px; font-size:13px; line-height:1.5; }
+  .card .meta { font-size:12.5px; color:var(--muted); }
+
+  .matrix-wrap { overflow-x:auto; background:var(--panel); border:1px solid var(--line); border-radius:12px; }
+  table.matrix { border-collapse:collapse; min-width:1100px; width:100%; }
+  .matrix th, .matrix td { padding:8px; border-bottom:1px solid #e5e7eb; text-align:center; vertical-align:top; font-size:12.5px; }
+  .matrix th { background:#f9fafb; font-weight:600; }
+  .matrix td.rh { text-align:left; font-weight:600; white-space:nowrap; font-size:14px; }
+  .cell { border:1px solid var(--line); border-radius:4px; padding:0; background:#fff; display:block; margin:0 auto; }
+  .cell img { display:block; width:110px; }
+  .cell.wide img { width:150px; }
+  .cell:hover { border-color:#111827; }
+
+  .grid2 { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:16px; }
+  .box { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .box h3 { margin:0 0 8px; font-size:15px; }
+  .box ul { margin:0; padding-left:18px; font-size:13.5px; line-height:1.6; }
+  table.docs { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; font-size:13.5px; }
+  .docs th, .docs td { text-align:left; padding:9px 12px; border-bottom:1px solid #e5e7eb; vertical-align:top; line-height:1.5; }
+  .docs th { background:#f9fafb; font-size:13px; }
+  .docs td:first-child { font-weight:600; white-space:nowrap; }
+
+  #viewer { display:none; height:calc(100vh - 66px); }
+  .vwrap { display:flex; height:100%; }
+  aside { width:290px; flex:none; background:var(--panel); border-right:1px solid var(--line); padding:14px 16px; overflow-y:auto; }
+  aside h4 { margin:14px 0 6px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  aside h4:first-child { margin-top:0; }
+  .seg { display:flex; flex-wrap:wrap; gap:6px; }
+  .seg button { font-size:13px; padding:6px 10px; }
+  aside label { display:flex; align-items:center; gap:8px; font-size:14px; padding:4px 0; cursor:pointer; }
+  aside select { width:100%; margin:2px 0 4px; font:inherit; font-size:14px; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  .vmain { flex:1; display:flex; flex-direction:column; min-width:0; }
+  .vbar { padding:8px 16px; border-bottom:1px solid var(--line); background:var(--panel); font-size:13.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 16px; align-items:center; }
+  .vbar strong { color:var(--ink); }
+  iframe { flex:1; width:100%; border:0; background:#9aa3ad; }
+
+  @media (max-width:800px) {
+    header { padding:12px 16px; }
+    #overview { padding:16px; }
+    #viewer { height:auto; }
+    .vwrap { flex-direction:column; }
+    aside { width:auto; border-right:0; border-bottom:1px solid var(--line); }
+    iframe { height:80vh; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Report Template Designs</h1>
+    <p>5 new designs &middot; 6 Odoo documents &middot; A4 &middot; built for Odoo 19's PDF engine</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-ov" aria-selected="true">Overview</button>
+    <button role="tab" id="tab-vw" aria-selected="false">Viewer and options</button>
+  </div>
+</header>
+
+<section id="overview">
+  <h2 class="sec">The five designs</h2>
+  <p class="lead">Each design covers Invoices, Sales Orders, Purchase Orders, Requests for Quotation, Delivery Notes and Picking Lists. Click a design to open its invoice in the viewer.</p>
+  <div class="cards" id="cards"></div>
+
+  <h2 class="sec">Every design, every document</h2>
+  <p class="lead">The long invoice shows both pages. Click any page to open it.</p>
+  <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
+
+  <h2 class="sec">Works the way each document is used</h2>
+  <table class="docs">
+    <thead><tr><th>Document</th><th>What it prints</th></tr></thead>
+    <tbody>
+      <tr><td>Invoice</td><td>Bill-to and ship-to, dates, source and reference, sections and notes, discounts and taxes per line, partial payment and amount due, amount in words, bank details with payment reference, scan-to-pay QR, payment terms, authorised signature.</td></tr>
+      <tr><td>Sales Order</td><td>Order and delivery dates, salesperson, customer reference, section subtotals, the customer's online signature with name and time.</td></tr>
+      <tr><td>Request for Quotation</td><td>No prices. Expected date and quantity per line, blank price and lead-time columns for the vendor to fill in, quote deadline.</td></tr>
+      <tr><td>Purchase Order</td><td>Vendor product codes, buyer, vendor order reference, expected arrival, Incoterm, delivery instructions, authorised buyer signature. The taxes column hides when no line is taxed.</td></tr>
+      <tr><td>Delivery Note</td><td>Ordered against delivered quantities, lot numbers, carrier, tracking and weight, backorder table for what is still to come, the receiver's signature.</td></tr>
+      <tr><td>Picking List</td><td>Scannable document barcode and product barcodes, from and to locations, lots and packages, tick boxes, a stock-shortage note, picked-by and checked-by lines.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sec">Options in every design</h2>
+  <div class="grid2">
+    <div class="box"><h3>Content</h3><ul>
+      <li>Product images on lines, on or off</li>
+      <li>Amount in words, in the customer's language</li>
+      <li>Company representative signature printed on every document, or a blank line for a wet signature</li>
+      <li>Watermark such as ORIGINAL or COPY</li>
+      <li>Status stamp from the record, such as Delivered</li>
+    </ul></div>
+    <div class="box"><h3>Look</h3><ul>
+      <li>Font family from Odoo's report fonts: Lato, Roboto, Open Sans, Montserrat, Oswald, Tajawal</li>
+      <li>Font size: small, normal or large</li>
+      <li>Three footers: standard, detailed (address, contacts, bank, tax ID, tagline) or minimal</li>
+      <li>Right-to-left layout for Arabic, Hebrew and Persian, mirrored automatically</li>
+    </ul></div>
+    <div class="box"><h3>Two pages and more</h3><ul>
+      <li>Header and footer repeat on every page, with page x of y</li>
+      <li>The table header repeats at the top of each new page</li>
+      <li>A row is never split, and a section title never ends a page</li>
+      <li>Totals, payment details, terms and signature move to the next page together</li>
+      <li>Title, addresses and stamp print on the first page only</li>
+    </ul></div>
+    <div class="box"><h3>Built for Odoo's PDF engine</h3><ul>
+      <li>A4 portrait, using Odoo 19's fixed 52&nbsp;mm header and 32&nbsp;mm footer bands</li>
+      <li>Layout made of tables only: no flexbox, grid or CSS variables, which wkhtmltopdf cannot render</li>
+      <li>Rotations carry the -webkit- prefix; images are embedded, not linked</li>
+      <li>Colours and font come from the company settings, like Odoo's own layouts</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="viewer">
+  <div class="vwrap">
+    <aside>
+      <h4>Design</h4><div class="seg" id="seg-design"></div>
+      <h4>Document</h4><div class="seg" id="seg-doc"></div>
+      <h4>Font family</h4>
+      <select id="o-font">
+        <option value="">Design default</option><option>Lato</option><option>Roboto</option><option>Open Sans</option>
+        <option>Montserrat</option><option>Oswald</option><option>Tajawal</option>
+      </select>
+      <h4>Font size</h4>
+      <div class="seg" id="seg-fs">
+        <button data-v="0.92">Small</button><button data-v="1" aria-selected="true">Normal</button><button data-v="1.08">Large</button>
+      </div>
+      <h4>Footer</h4>
+      <div class="seg" id="seg-foot">
+        <button data-v="" aria-selected="true">Standard</button><button data-v="detailed">Detailed</button><button data-v="minimal">Minimal</button>
+      </div>
+      <h4>Show</h4>
+      <label><input type="checkbox" id="o-img" checked> Product images</label>
+      <label><input type="checkbox" id="o-words" checked> Amount in words</label>
+      <label><input type="checkbox" id="o-sig" checked> Company signature</label>
+      <label><input type="checkbox" id="o-wm"> Watermark</label>
+      <select id="o-wmtext" aria-label="Watermark text" disabled>
+        <option value="">Original</option><option>Copy</option><option>Confidential</option><option>Draft</option><option>Paid</option>
+      </select>
+      <label><input type="checkbox" id="o-bands"> Odoo header and footer bands</label>
+    </aside>
+    <div class="vmain">
+      <div class="vbar"><span>Viewing <strong id="v-name"></strong></span><span class="spacer"></span><a id="v-open" href="#" target="_blank" rel="noopener">Open alone in a new tab</a></div>
+      <iframe id="frame" title="Report preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+var DESIGNS = [{"key": "margin", "name": "Margin", "colours": ["#312e81", "#c2410c"], "font": "Montserrat", "idea": "The document type runs down the left margin. Totals sit in a horizontal bar of tiles.", "points": ["Vertical title in the page gutter", "Key facts on one ruled strip", "Totals bar: untaxed, tax, total, paid and due side by side"], "best": "Agencies, services, consultancies"}, {"key": "monogram", "name": "Monogram", "colours": ["#14532d", "#a16207"], "font": "Lato", "idea": "Centred and symmetrical, with mirrored addresses and a round seal stamp.", "points": ["Ruled, letter-spaced title over the number", "Facts centred in one line", "Payment and totals as two mirrored halves"], "best": "Hospitality, retail, premium brands"}, {"key": "blueprint", "name": "Blueprint", "colours": ["#1d4ed8", "#0f172a"], "font": "Roboto", "idea": "An engineering title block and numbered sections you can refer to on a call.", "points": ["Title block with every fact in one grid", "Sections numbered 01 to 05", "Full grid lines, tabular figures"], "best": "Manufacturing, engineering, distribution"}, {"key": "duet", "name": "Duet", "colours": ["#6b21a8", "#e9d5ff"], "font": "Open Sans", "idea": "A filled summary card at the top, matched by a filled totals panel at the bottom.", "points": ["Dates, references and amount due in one card", "Section rows marked with a side stripe", "Totals panel echoes the card"], "best": "E-commerce, SaaS, consumer brands"}, {"key": "remit", "name": "Remit", "colours": ["#1f2937", "#c2410c"], "font": "Lato", "idea": "A cut-off slip at the bottom that does a different job on each document.", "points": ["Document type and number repeat in every page header", "Payment slip, order acceptance, vendor acknowledgement, carrier copy, dispatch label", "Black label bars and boxed facts"], "best": "Wholesale, B2B, US-style billing"}];
+var DOCS = [["invoice", "Invoice"], ["invoice_long", "Invoice, 2 pages"], ["invoice_ar", "Invoice, Arabic RTL"], ["sale", "Sales Order"], ["rfq", "Request for Quotation"], ["po", "Purchase Order"], ["delivery", "Delivery Note"], ["picking", "Picking List"]];
+var state = { design: DESIGNS[0].key, doc: 'invoice' };
+try { var saved = JSON.parse(localStorage.getItem('rtd-state') || 'null'); if (saved) { state = saved; } } catch (e) {}
+
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function dname(k) { for (var i = 0; i < DESIGNS.length; i++) { if (DESIGNS[i].key === k) { return DESIGNS[i].name; } } return k; }
+function docname(k) { for (var i = 0; i < DOCS.length; i++) { if (DOCS[i][0] === k) { return DOCS[i][1]; } } return k; }
+
+// Overview
+var cards = document.getElementById('cards');
+DESIGNS.forEach(function (d) {
+  var b = document.createElement('button');
+  b.className = 'card';
+  b.innerHTML = '<div class="th"><img src="templates/thumbs/' + d.key + '_invoice.png" alt="' + esc(d.name) + ' invoice"></div>' +
+    '<div class="bd"><h3><span class="sw" style="background:' + d.colours[0] + '"></span><span class="sw" style="background:' + d.colours[1] + '"></span>' + esc(d.name) + '</h3>' +
+    '<p>' + esc(d.idea) + '</p><ul>' + d.points.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
+    '<div class="meta">Best for: ' + esc(d.best) + '<br>Font: ' + esc(d.font) + '</div></div>';
+  b.addEventListener('click', function () { openView(d.key, 'invoice'); });
+  cards.appendChild(b);
+});
+var m = '<thead><tr><th></th>' + DOCS.map(function (x) { return '<th>' + esc(x[1]) + '</th>'; }).join('') + '</tr></thead><tbody>';
+DESIGNS.forEach(function (d) {
+  m += '<tr><td class="rh">' + esc(d.name) + '</td>';
+  DOCS.forEach(function (x) {
+    var wide = x[0] === 'invoice_long';
+    var src = 'templates/thumbs/' + d.key + '_' + x[0] + (wide ? '_spread' : '') + '.png';
+    m += '<td><button class="cell' + (wide ? ' wide' : '') + '" data-d="' + d.key + '" data-x="' + x[0] + '" aria-label="' + esc(d.name + ', ' + x[1]) + '"><img loading="lazy" src="' + src + '" alt=""></button></td>';
+  });
+  m += '</tr>';
+});
+document.getElementById('matrix').innerHTML = m + '</tbody>';
+document.querySelectorAll('.cell').forEach(function (c) {
+  c.addEventListener('click', function () { openView(c.getAttribute('data-d'), c.getAttribute('data-x')); });
+});
+
+// Viewer
+function seg(id, items, current, onpick) {
+  var el = document.getElementById(id);
+  el.innerHTML = items.map(function (it) {
+    return '<button data-v="' + it[0] + '" aria-selected="' + (it[0] === current) + '">' + esc(it[1]) + '</button>';
+  }).join('');
+  el.querySelectorAll('button').forEach(function (b) {
+    b.addEventListener('click', function () { onpick(b.getAttribute('data-v')); });
+  });
+}
+function pick(id, v) {
+  document.querySelectorAll('#' + id + ' button').forEach(function (b) { b.setAttribute('aria-selected', b.getAttribute('data-v') === v); });
+}
+function render() {
+  seg('seg-design', DESIGNS.map(function (d) { return [d.key, d.name]; }), state.design, function (v) { state.design = v; render(); });
+  seg('seg-doc', DOCS, state.doc, function (v) { state.doc = v; render(); });
+  var q = [];
+  var font = document.getElementById('o-font').value; if (font) { q.push('font=' + encodeURIComponent(font)); }
+  var fs = document.querySelector('#seg-fs button[aria-selected="true"]').getAttribute('data-v'); if (fs !== '1') { q.push('fs=' + fs); }
+  var ft = document.querySelector('#seg-foot button[aria-selected="true"]').getAttribute('data-v'); if (ft) { q.push('footer=' + ft); }
+  if (!document.getElementById('o-img').checked) { q.push('img=0'); }
+  if (!document.getElementById('o-words').checked) { q.push('words=0'); }
+  if (!document.getElementById('o-sig').checked) { q.push('sig=0'); }
+  var wmOn = document.getElementById('o-wm').checked;
+  document.getElementById('o-wmtext').disabled = !wmOn;
+  if (wmOn) { q.push('wm=1'); var wt = document.getElementById('o-wmtext').value; if (wt) { q.push('wmtext=' + encodeURIComponent(wt)); } }
+  if (document.getElementById('o-bands').checked) { q.push('bands=1'); }
+  var url = 'templates/' + state.design + '/' + state.doc + '.html' + (q.length ? '?' + q.join('&') : '');
+  var fr = document.getElementById('frame');
+  if (fr.getAttribute('src') !== url) { fr.setAttribute('src', url); }
+  document.getElementById('v-name').textContent = dname(state.design) + ', ' + docname(state.doc);
+  document.getElementById('v-open').href = url;
+  try { localStorage.setItem('rtd-state', JSON.stringify(state)); } catch (e) {}
+}
+['seg-fs', 'seg-foot'].forEach(function (id) {
+  document.querySelectorAll('#' + id + ' button').forEach(function (b) {
+    b.addEventListener('click', function () { pick(id, b.getAttribute('data-v')); render(); });
+  });
+});
+['o-font', 'o-img', 'o-words', 'o-sig', 'o-wm', 'o-wmtext', 'o-bands'].forEach(function (id) {
+  document.getElementById(id).addEventListener('change', render);
+});
+function show(which) {
+  var ov = which === 'ov';
+  document.getElementById('overview').style.display = ov ? 'block' : 'none';
+  document.getElementById('viewer').style.display = ov ? 'none' : 'block';
+  document.getElementById('tab-ov').setAttribute('aria-selected', ov);
+  document.getElementById('tab-vw').setAttribute('aria-selected', !ov);
+  if (!ov) { render(); }
+}
+function openView(d, x) { state.design = d; state.doc = x; show('vw'); window.scrollTo(0, 0); }
+document.getElementById('tab-ov').addEventListener('click', function () { show('ov'); });
+document.getElementById('tab-vw').addEventListener('click', function () { show('vw'); });
+</script>
+</body>
+</html>
