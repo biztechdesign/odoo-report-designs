@@ -65,6 +65,10 @@
   .seg { display:flex; flex-wrap:wrap; gap:6px; }
   .seg button { font-size:13px; padding:6px 10px; }
   aside label { display:flex; align-items:center; gap:8px; font-size:14px; padding:4px 0; cursor:pointer; }
+  #odoo-cfg .note { font-size:12.5px; color:var(--muted); margin:-2px 0 8px; }
+  .cfg label.c { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .cfg label.c select, .cfg label.c input[type=text], .cfg label.c input[type=number] { width:118px; margin:0; }
+  .cfg input[type=color] { width:38px; height:26px; padding:0; border:1px solid var(--line); border-radius:4px; background:#fff; }
   aside select { width:100%; margin:2px 0 4px; font:inherit; font-size:14px; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:#fff; }
   .vmain { flex:1; display:flex; flex-direction:column; min-width:0; }
   .vbar { padding:8px 16px; border-bottom:1px solid var(--line); background:var(--panel); font-size:13.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 16px; align-items:center; }
@@ -107,10 +111,10 @@
   <table class="docs">
     <thead><tr><th>Document</th><th>What it prints</th></tr></thead>
     <tbody>
-      <tr><td>Invoice</td><td>Bill-to and ship-to, dates, source and reference, sections and notes, discounts and taxes per line, partial payment and amount due, amount in words, bank details with payment reference, scan-to-pay QR, payment terms, authorised signature.</td></tr>
+      <tr><td>Invoice</td><td>One combined address block when invoicing and shipping match, otherwise bill-to and ship-to. Invoice and due dates, reference, sales order number and order date. Sections and notes, discounts and taxes per line, partial payment and amount due, amount in words, "Pay to" bank details beside the address, terms and the fiscal position remark.</td></tr>
       <tr><td>Sales Order</td><td>Order and delivery dates, salesperson, customer reference, section subtotals, the customer's online signature with name and time.</td></tr>
       <tr><td>Request for Quotation</td><td>No prices. Expected date and quantity per line, blank price and lead-time columns for the vendor to fill in, quote deadline.</td></tr>
-      <tr><td>Purchase Order</td><td>Vendor product codes, buyer, vendor order reference, expected arrival, Incoterm, delivery instructions, authorised buyer signature. The taxes column hides when no line is taxed.</td></tr>
+      <tr><td>Purchase Order</td><td>Vendor product codes, buyer, vendor order reference, expected arrival, Incoterm, delivery instructions. The taxes column hides when no line is taxed.</td></tr>
       <tr><td>Delivery Note</td><td>Ordered against delivered quantities, lot numbers, carrier, tracking and weight, backorder table for what is still to come, the receiver's signature.</td></tr>
       <tr><td>Picking List</td><td>Scannable document barcode and product barcodes, from and to locations, lots and packages, tick boxes, a stock-shortage note, picked-by and checked-by lines.</td></tr>
     </tbody>
@@ -120,14 +124,14 @@
   <div class="grid2">
     <div class="box"><h3>Content</h3><ul>
       <li>Product images on lines, on or off</li>
+      <li>Customer mobile and email, line numbers, document barcode and company stamp, each on or off</li>
       <li>Amount in words, in the customer's language</li>
-      <li>Company representative signature printed on every document, or a blank line for a wet signature</li>
       <li>Watermark such as ORIGINAL or COPY</li>
       <li>Status stamp from the record, such as Delivered</li>
     </ul></div>
     <div class="box"><h3>Look</h3><ul>
       <li>Font family from Odoo's report fonts: Lato, Roboto, Open Sans, Montserrat, Oswald, Tajawal</li>
-      <li>Font size: small, normal or large</li>
+      <li>Large, easy-to-read text as standard</li>
       <li>Three footers: standard, detailed (address, contacts, bank, tax ID, tagline) or minimal</li>
       <li>Right-to-left layout for Arabic, Hebrew and Persian, mirrored automatically</li>
     </ul></div>
@@ -152,28 +156,39 @@
     <aside>
       <h4>Design</h4><div class="seg" id="seg-design"></div>
       <h4>Document</h4><div class="seg" id="seg-doc"></div>
-      <h4>Font family</h4>
-      <select id="o-font">
-        <option value="">Design default</option><option>Lato</option><option>Roboto</option><option>Open Sans</option>
-        <option>Montserrat</option><option>Oswald</option><option>Tajawal</option>
-      </select>
-      <h4>Font size</h4>
-      <div class="seg" id="seg-fs">
-        <button data-v="0.92">Small</button><button data-v="1" aria-selected="true">Normal</button><button data-v="1.08">Large</button>
+
+      <div id="odoo-cfg">
+        <h4>Report settings</h4>
+        <div class="cfg">
+          <label class="c">Company Name Color <input type="color" data-k="coName" value="#6f8192"></label>
+          <label class="c">Company Address Color <input type="color" data-k="coAddr" value="#6f8192"></label>
+          <label><input type="checkbox" data-k="coBold"> Display Company Name in Bold</label>
+          <label class="c">Template Base Color <input type="color" data-k="base" value="#a24689"></label>
+          <label class="c">Template Text Color <input type="color" data-k="text" value="#ffffff"></label>
+          <label class="c">General Text Color <input type="color" data-k="gen" value="#000000"></label>
+          <label class="c">Table Odd Parity Color <input type="color" data-k="odd" value="#ffffff"></label>
+          <label class="c">Table Even Parity Color <input type="color" data-k="even" value="#e6e8ed"></label>
+          <label class="c">Customer Name Color <input type="color" data-k="custName" value="#000000"></label>
+          <label class="c">Customer Address Color <input type="color" data-k="custAddr" value="#000000"></label>
+          <label><input type="checkbox" data-k="custBold" checked> Display Customer Name in Bold</label>
+          <label><input type="checkbox" data-k="desc" checked> Display Product Description</label>
+          <label><input type="checkbox" data-k="img" checked> Display Product Image</label>
+          <label><input type="checkbox" data-k="words" checked> Display Amount In Word</label>
+          <label><input type="checkbox" data-k="notes" checked> Display Notes</label>
+          <label><input type="checkbox" data-k="payNotes" checked> Display Payment Notes</label>
+          <label><input type="checkbox" data-k="payDesc" checked> Display Payment Description</label>
+          <label><input type="checkbox" data-k="barcode" checked> Display Report Barcode</label>
+          <label class="c">Report Font <select data-k="font"><option>Helvetica</option><option>Lato</option><option>Roboto</option><option>Open Sans</option><option>Montserrat</option><option>Oswald</option></select></label>
+          <label class="c">Report Font Size (px) <input type="number" data-k="size" value="13" min="9" max="16"></label>
+          <label class="c">Select Report Footer <select data-k="footer"><option>Standard</option><option>Multi Columns</option><option>Minimal</option></select></label>
+          <label><input type="checkbox" data-k="sig" checked> Display Signature</label>
+          <label><input type="checkbox" data-k="wm" checked> Display Watermark?</label>
+          <label class="c">Display Watermark <select data-k="wmType"><option>Text</option><option>Logo</option><option>Status</option></select></label>
+          <label class="c">Watermark Text <input type="text" data-k="wmText" value="ORIGANAL"></label>
+          <label class="c">Watermark Text Color <input type="color" data-k="wmColor" value="#2b4e99"></label>
+          <label class="c">Watermark Text Font Size (em) <input type="number" data-k="wmSize" value="4" min="1" max="8" step="0.5"></label>
+        </div>
       </div>
-      <h4>Footer</h4>
-      <div class="seg" id="seg-foot">
-        <button data-v="" aria-selected="true">Standard</button><button data-v="detailed">Detailed</button><button data-v="minimal">Minimal</button>
-      </div>
-      <h4>Show</h4>
-      <label><input type="checkbox" id="o-img" checked> Product images</label>
-      <label><input type="checkbox" id="o-words" checked> Amount in words</label>
-      <label><input type="checkbox" id="o-sig" checked> Company signature</label>
-      <label><input type="checkbox" id="o-wm"> Watermark</label>
-      <select id="o-wmtext" aria-label="Watermark text" disabled>
-        <option value="">Original</option><option>Copy</option><option>Confidential</option><option>Draft</option><option>Paid</option>
-      </select>
-      <label><input type="checkbox" id="o-bands"> Odoo header and footer bands</label>
     </aside>
     <div class="vmain">
       <div class="vbar"><span>Viewing <strong id="v-name"></strong></span><span class="spacer"></span><a id="v-open" href="#" target="_blank" rel="noopener">Open alone in a new tab</a></div>
@@ -183,10 +198,11 @@
 </section>
 
 <script>
-var DESIGNS = [{"key": "margin", "name": "Margin", "colours": ["#312e81", "#c2410c"], "font": "Montserrat", "idea": "The document type runs down the left margin. Totals sit in a horizontal bar of tiles.", "points": ["Vertical title in the page gutter", "Key facts on one ruled strip", "Totals bar: untaxed, tax, total, paid and due side by side"], "best": "Agencies, services, consultancies"}, {"key": "monogram", "name": "Monogram", "colours": ["#14532d", "#a16207"], "font": "Lato", "idea": "Centred and symmetrical, with mirrored addresses and a round seal stamp.", "points": ["Ruled, letter-spaced title over the number", "Facts centred in one line", "Payment and totals as two mirrored halves"], "best": "Hospitality, retail, premium brands"}, {"key": "blueprint", "name": "Blueprint", "colours": ["#1d4ed8", "#0f172a"], "font": "Roboto", "idea": "An engineering title block and numbered sections you can refer to on a call.", "points": ["Title block with every fact in one grid", "Sections numbered 01 to 05", "Full grid lines, tabular figures"], "best": "Manufacturing, engineering, distribution"}, {"key": "duet", "name": "Duet", "colours": ["#6b21a8", "#e9d5ff"], "font": "Open Sans", "idea": "A filled summary card at the top, matched by a filled totals panel at the bottom.", "points": ["Dates, references and amount due in one card", "Section rows marked with a side stripe", "Totals panel echoes the card"], "best": "E-commerce, SaaS, consumer brands"}, {"key": "remit", "name": "Remit", "colours": ["#1f2937", "#c2410c"], "font": "Lato", "idea": "A cut-off slip at the bottom that does a different job on each document.", "points": ["Document type and number repeat in every page header", "Payment slip, order acceptance, vendor acknowledgement, carrier copy, dispatch label", "Black label bars and boxed facts"], "best": "Wholesale, B2B, US-style billing"}, {"key": "route", "name": "Route", "colours": ["#0e7490", "#b45309"], "font": "Roboto", "idea": "A boarding-pass strip shows who sends to whom, money or goods, with a barcode stub to scan the document number.", "points": ["From and to at a glance: seller to customer, vendor to warehouse, warehouse to customer", "Code 128 barcode of the document number on every document", "Dashed tear-line styling"], "best": "Logistics, distribution, field services"}, {"key": "tally", "name": "Tally", "colours": ["#9f1239", "#334155"], "font": "Open Sans", "idea": "Numbered lines with a running total, and running quantity on stock documents, to check long lists fast.", "points": ["Running total column on priced documents", "Running quantity on delivery, picking and RFQ", "Heavier rule every five lines, double-ruled total"], "best": "Wholesale, long orders, accounts teams"}, {"key": "headline", "name": "Headline", "colours": ["#111111", "#a3e635"], "font": "Montserrat", "idea": "Typographic: the one figure that matters is printed huge at the top of every document.", "points": ["Amount due, total, quote deadline or units to pick in 42 px type", "Details in two compact columns beside it", "Black rules, lime highlight only"], "best": "Creative studios, startups, modern brands"}, {"key": "gallery", "name": "Gallery", "colours": ["#9a3412", "#fed7aa"], "font": "Lato", "idea": "Card-style rows with large product pictures, for businesses that sell by look.", "points": ["Large product pictures on every line", "Initials badge when a product has no image", "Soft sand summary panel"], "best": "Furniture, fashion, home goods, catalogues. Needs more pages on long orders"}, {"key": "swiss", "name": "Swiss", "colours": ["#111111", "#dc2626"], "font": "Roboto", "idea": "One strict label column down the whole page, black type and a single red accent.", "points": ["Document, Parties, Items, Payment and Terms rows", "Payment row: words, bank, QR and totals side by side", "Large document title with a red full stop"], "best": "Consultancies, architects, professional services"}];
+var DESIGNS = [{"key": "margin", "name": "Margin", "colours": ["#312e81", "#c2410c"], "font": "Montserrat", "idea": "Key details on one ruled strip, and totals in a horizontal bar of tiles.", "points": ["Coral accent under the header", "Key facts on one ruled strip", "Totals bar: untaxed, tax, total, paid and due side by side"], "best": "Agencies, services, consultancies"}, {"key": "monogram", "name": "Monogram", "colours": ["#14532d", "#a16207"], "font": "Lato", "idea": "Centred and symmetrical, with mirrored addresses and a round seal stamp.", "points": ["Ruled, letter-spaced title over the number", "Facts centred in one line", "Payment and totals as two mirrored halves"], "best": "Hospitality, retail, premium brands"}, {"key": "blueprint", "name": "Blueprint", "colours": ["#1d4ed8", "#0f172a"], "font": "Roboto", "idea": "An engineering title block and numbered sections you can refer to on a call.", "points": ["Title block with every fact in one grid", "Sections numbered 01 to 05", "Full grid lines, tabular figures"], "best": "Manufacturing, engineering, distribution"}, {"key": "duet", "name": "Duet", "colours": ["#6b21a8", "#e9d5ff"], "font": "Open Sans", "idea": "A filled summary card at the top, matched by a filled totals panel at the bottom.", "points": ["Dates, references and amount due in one card", "Section rows marked with a side stripe", "Totals panel echoes the card"], "best": "E-commerce, SaaS, consumer brands"}, {"key": "remit", "name": "Remit", "colours": ["#1f2937", "#c2410c"], "font": "Lato", "idea": "Document type and number in a bold header, boxed details and black label bars.", "points": ["Document type and number repeat in every page header", "Filled table header and zebra rows", "Black label bars and boxed facts"], "best": "Wholesale, B2B, US-style billing"}, {"key": "route", "name": "Route", "colours": ["#0e7490", "#b45309"], "font": "Roboto", "idea": "A boarding-pass strip shows who sends to whom, money or goods, with a barcode stub to scan the document number.", "points": ["From and to at a glance: seller to customer, vendor to warehouse, warehouse to customer", "Code 128 barcode of the document number on every document", "Dashed tear-line styling"], "best": "Logistics, distribution, field services"}, {"key": "tally", "name": "Tally", "colours": ["#9f1239", "#334155"], "font": "Open Sans", "idea": "Numbered lines with a running total, and running quantity on stock documents, to check long lists fast.", "points": ["Running total column on priced documents", "Running quantity on delivery, picking and RFQ", "Heavier rule every five lines, double-ruled total"], "best": "Wholesale, long orders, accounts teams"}, {"key": "headline", "name": "Headline", "colours": ["#111111", "#a3e635"], "font": "Montserrat", "idea": "Typographic: the one figure that matters is printed huge at the top of every document.", "points": ["Amount due, total, quote deadline or units to pick in 42 px type", "Details in two compact columns beside it", "Black rules, lime highlight only"], "best": "Creative studios, startups, modern brands"}, {"key": "gallery", "name": "Gallery", "colours": ["#9a3412", "#fed7aa"], "font": "Lato", "idea": "Card-style rows with large product pictures, for businesses that sell by look.", "points": ["Large product pictures on every line", "Initials badge when a product has no image", "Soft sand summary panel"], "best": "Furniture, fashion, home goods, catalogues. Needs more pages on long orders"}, {"key": "swiss", "name": "Swiss", "colours": ["#111111", "#dc2626"], "font": "Roboto", "idea": "One strict label column down the whole page, black type and a single red accent.", "points": ["Document, Parties, Items, Payment and Terms rows", "Payment row: amount in words, bank and totals side by side", "Large document title with a red full stop"], "best": "Consultancies, architects, professional services"}];
 var DOCS = [["invoice", "Invoice"], ["invoice_long", "Invoice, 2 pages"], ["invoice_ar", "Invoice, Arabic RTL"], ["sale", "Sales Order"], ["rfq", "Request for Quotation"], ["po", "Purchase Order"], ["delivery", "Delivery Note"], ["picking", "Picking List"]];
 var state = { design: DESIGNS[0].key, doc: 'invoice' };
 try { var saved = JSON.parse(localStorage.getItem('rtd-state') || 'null'); if (saved) { state = saved; } } catch (e) {}
+if (!DOCS.some(function (x) { return x[0] === state.doc; })) { state.doc = 'invoice'; }
 
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 function dname(k) { for (var i = 0; i < DESIGNS.length; i++) { if (DESIGNS[i].key === k) { return DESIGNS[i].name; } } return k; }
@@ -235,31 +251,21 @@ function pick(id, v) {
 function render() {
   seg('seg-design', DESIGNS.map(function (d) { return [d.key, d.name]; }), state.design, function (v) { state.design = v; render(); });
   seg('seg-doc', DOCS, state.doc, function (v) { state.doc = v; render(); });
-  var q = [];
-  var font = document.getElementById('o-font').value; if (font) { q.push('font=' + encodeURIComponent(font)); }
-  var fs = document.querySelector('#seg-fs button[aria-selected="true"]').getAttribute('data-v'); if (fs !== '1') { q.push('fs=' + fs); }
-  var ft = document.querySelector('#seg-foot button[aria-selected="true"]').getAttribute('data-v'); if (ft) { q.push('footer=' + ft); }
-  if (!document.getElementById('o-img').checked) { q.push('img=0'); }
-  if (!document.getElementById('o-words').checked) { q.push('words=0'); }
-  if (!document.getElementById('o-sig').checked) { q.push('sig=0'); }
-  var wmOn = document.getElementById('o-wm').checked;
-  document.getElementById('o-wmtext').disabled = !wmOn;
-  if (wmOn) { q.push('wm=1'); var wt = document.getElementById('o-wmtext').value; if (wt) { q.push('wmtext=' + encodeURIComponent(wt)); } }
-  if (document.getElementById('o-bands').checked) { q.push('bands=1'); }
-  var url = 'templates/' + state.design + '/' + state.doc + '.html' + (q.length ? '?' + q.join('&') : '');
+  var cfg = {};
+  document.querySelectorAll('#odoo-cfg [data-k]').forEach(function (el) {
+    cfg[el.getAttribute('data-k')] = el.type === 'checkbox' ? el.checked : el.value;
+  });
+  var url = 'templates/' + state.design + '/' + state.doc + '.html?cfg=' +
+    encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(cfg)))));
   var fr = document.getElementById('frame');
   if (fr.getAttribute('src') !== url) { fr.setAttribute('src', url); }
   document.getElementById('v-name').textContent = dname(state.design) + ', ' + docname(state.doc);
   document.getElementById('v-open').href = url;
   try { localStorage.setItem('rtd-state', JSON.stringify(state)); } catch (e) {}
 }
-['seg-fs', 'seg-foot'].forEach(function (id) {
-  document.querySelectorAll('#' + id + ' button').forEach(function (b) {
-    b.addEventListener('click', function () { pick(id, b.getAttribute('data-v')); render(); });
-  });
-});
-['o-font', 'o-img', 'o-words', 'o-sig', 'o-wm', 'o-wmtext', 'o-bands'].forEach(function (id) {
-  document.getElementById(id).addEventListener('change', render);
+document.querySelectorAll('#odoo-cfg [data-k]').forEach(function (el) {
+  el.addEventListener('change', render);
+  if (el.type === 'text' || el.type === 'number') { el.addEventListener('input', render); }
 });
 function show(which) {
   var ov = which === 'ov';

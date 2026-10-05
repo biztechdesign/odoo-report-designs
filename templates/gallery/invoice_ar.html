@@ -9,12 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#9aa3ad;color:#1f2937;font-size:13px;line-height:1.45}
+body{margin:0;background:#9aa3ad;color:#1f2937;font-size:13.9px;line-height:1.45}
 .page{width:210mm;height:297mm;overflow:hidden;margin:24px auto;background:#fff;padding:11mm 11mm 0;position:relative;box-shadow:0 10px 40px rgba(0,0,0,.35)}
 .hdr{overflow:hidden}
+.hwrap{width:100%;height:100%}.hwrap>tbody>tr>td{vertical-align:bottom;padding:0}
 .art{position:relative}
-.ftr{position:absolute;right:11mm;left:11mm;bottom:11mm;max-height:16mm;overflow:hidden;font-size:11px;color:#374151}
-.band{display:none;position:absolute;right:0;left:0;border-top:1px dashed #d33;font-size:9px;color:#d33;padding-right:4px;z-index:9}
+.ftr{position:absolute;right:11mm;left:11mm;bottom:11mm;max-height:16mm;overflow:hidden;font-size:11.7px;color:#374151}
+.band{display:none;position:absolute;right:0;left:0;border-top:1px dashed #d33;font-size:9.6px;color:#d33;padding-right:4px;z-index:9}
 .band.h{border-color:#36c;color:#36c}
 body.bands .band{display:block}
 table{border-collapse:collapse}
@@ -23,12 +24,17 @@ caption{text-align:right}
 .lines{width:100%}
 .lines thead{display:table-header-group}
 .lines tr{page-break-inside:avoid}
+.lines tr.sec td{background:none!important;border-right:0!important;border-top:0!important;border-bottom:0!important;padding-top:8px!important}
+.lines tr.note td{border-top:0!important;border-bottom:0!important}
 .lines td.k-qty,.lines td.k-lot,.lines td.k-pack,.lines td.k-ordered,.lines td.k-delivered,.lines td.k-price,.lines td.k-amount,.lines td.k-date,.lines td.k-disc,.lines td.k-tax{white-space:nowrap}
 .r{text-align:left}.c{text-align:center}.l{text-align:right}.nowrap{white-space:nowrap}
-.lbl{text-transform:uppercase;letter-spacing:.06em;font-size:10.2px;font-weight:700;color:#9a3412;line-height:1.4;margin-bottom:2px}
+.lbl{text-transform:uppercase;letter-spacing:.06em;font-size:10.9px;font-weight:700;color:#9a3412;line-height:1.4;margin-bottom:2px}
 .pname{font-weight:700}
-.parties{width:100%;margin-bottom:14px;line-height:1.35}.parties td{padding:0 0 0 16px}
+.parties{width:100%;margin-bottom:18px;line-height:1.35}.parties td{padding:0 0 0 16px}
 .parties td.vf{width:25%;padding-left:0}.vf .f{margin-bottom:4px}
+.parties td.vf .px{text-align:right}
+.bankb.bare{margin-top:4px}.parties td.vx{width:46%}
+.parties .px .docbc{margin:0}
 .facts{width:100%;margin-bottom:14px}.facts td{padding:0 0 0 12px}
 .thumb{float:right;width:30px;height:30px;margin-left:8px;border:1px solid #e5e7eb;border-radius:4px;background:#fff}
 .pbody{overflow:hidden}
@@ -38,37 +44,58 @@ caption{text-align:right}
 .fill{display:inline-block;width:72px;border-bottom:1px solid #9ca3af;height:16px}
 .docbc{margin:6px 0 8px}.docbc svg{display:block;height:auto;max-width:100%}
 .tot{width:100%}.tot td{padding:4px 8px;white-space:nowrap}
-.bside{width:100%;margin-top:10px;page-break-inside:avoid}.bside td.bl{padding-left:18px}.bside td.br{width:44%}
+.bside{width:100%;margin-top:14px;page-break-inside:avoid}.bside td.bl{padding-left:18px}.bside td.br{width:44%}
 .blk{margin-bottom:8px}
 .wv{font-style:italic}
-.paycomm{font-size:12px}
+.wline{margin-top:8px;page-break-inside:avoid}
+.ftxt{margin-top:8px;page-break-inside:avoid}.wline .lbl{display:inline;margin:0}
+.bankb .bt{font-size:12.8px;line-height:1.55}
+.paycomm{font-size:12.8px}
 .payrow{width:100%}.payrow td{vertical-align:top}.payrow td.qrcell{width:88px;padding-right:12px}
-.bank td{padding:0 0 0 12px;line-height:1.6;font-size:12px;white-space:nowrap}.bank td.bk{color:#57534e}
-.qr{text-align:center;font-size:10.5px;color:#57534e}
+.bank td{padding:0 0 0 12px;line-height:1.6;font-size:12.8px;white-space:nowrap}.bank td.bk{color:#57534e}
+.qr{text-align:center;font-size:11.2px;color:#57534e}
 .qrc{width:72px;height:72px;margin:0 auto 3px}.qrc img,.qrc canvas{display:block;width:72px!important;height:72px!important}
-.sig{text-align:center;font-size:11.7px;color:#374151}
-.sig .sigfor{font-size:10.8px;color:#57534e;text-align:right}
+.sig{text-align:center;font-size:12.5px;color:#374151}
+.sig .sigfor{font-size:11.5px;color:#57534e;text-align:right}
 .sig .sigline{height:26px;border-bottom:1px solid #9a3412;margin-bottom:3px}
 .cosig{display:block;height:34px;margin:-10px auto 0}
-.cosigname{font-size:11px;color:#374151}
-.sigcap{text-align:center;font-size:11.7px}
-.sigcap .sigimg{display:block;height:46px;margin:2px auto 0}
+.cosigname{font-size:11.7px;color:#374151}
+.sigcap{text-align:center;font-size:12.5px}
+.sigcap .sigimg{display:block;height:38px;margin:2px auto 0}
 .sigcap .signame{border-top:1px solid #9a3412;padding-top:4px;font-weight:700}
-.sigcap .sigdate{color:#57534e;font-size:11px}
+.sigcap .sigdate{color:#57534e;font-size:11.7px}
 .fin{width:100%;margin-top:10px;page-break-inside:avoid}.fin td{vertical-align:bottom}.fin td.fsig{width:32%;padding-right:18px}
-.txts{width:100%}.txts td{padding-left:16px;font-size:12px;color:#374151;vertical-align:top}
+.txts{width:100%}.txts td{padding-left:16px;font-size:12.8px;color:#374151;vertical-align:top}
+.txts .lbl{white-space:nowrap}
+.tlist{margin:0;padding-right:18px;font-size:12.8px;line-height:1.6;color:#374151}
+.tlist li{margin-bottom:2px}.tlist li b{color:#111}
+.pill{display:inline-block;border-radius:999px;padding:1px 10px;font-size:11.7px;font-weight:700;white-space:nowrap}
+.pill.part{background:#fef3c7;color:#92400e}.pill.open{background:#fee2e2;color:#991b1b}.pill.paid{background:#dcfce7;color:#166534}
+.txts td.pst{width:1%;white-space:nowrap}
+.fin td.fseal{width:1%;padding-right:12px;vertical-align:bottom}
+.cstamp{display:none;width:64px;height:64px;opacity:.85;object-fit:contain}
+body.show-stamp .cstamp{display:block}
+.fin td.fbc{display:none;width:1%;padding-right:12px;vertical-align:bottom}.fin td.fbc svg{display:block;height:auto;max-width:180px}
+body.show-bc .fin td.fbc{display:table-cell}
+.pc{display:none}body.show-contact .pc{display:block}
+.lines .k-sr{color:#57534e;width:24px}
 .bo{margin-top:12px;page-break-inside:avoid}.bo table{width:100%;margin-top:4px}
-.bo th{text-align:right;font-size:10.2px;text-transform:uppercase;letter-spacing:.06em;color:#57534e;border-bottom:1px solid #9a3412;padding:0 0 4px}
+.bo th{text-align:right;font-size:10.9px;text-transform:uppercase;letter-spacing:.06em;color:#57534e;border-bottom:1px solid #9a3412;padding:0 0 4px}
 .bo th.r{text-align:left}.bo td{padding:4px 0;border-bottom:1px solid #f1e3d3}
 .picksig{margin-top:18px;width:100%;page-break-inside:avoid}
-.picksig td{width:33.33%;padding-left:24px;font-size:11.5px;color:#57534e;vertical-align:bottom}
+.picksig td{width:33.33%;padding-left:24px;font-size:12.3px;color:#57534e;vertical-align:bottom}
 .picksig .sigline{border-bottom:1px solid #9a3412;height:34px;margin-bottom:4px}
 .stamp{position:absolute;text-transform:uppercase;z-index:3;white-space:nowrap}
 .wm{display:none;position:absolute;top:300px;right:0;left:0;text-align:center;-webkit-transform:rotate(30deg);transform:rotate(30deg);opacity:.09;font-size:6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;z-index:1;color:#9a3412}
 body.show-wm .wm{display:block}
+.dstrip{width:100%;margin-top:5px;font-size:11.2px}
+body>.page:first-of-type .not-first-page{visibility:hidden}
+.dstrip td{padding:3px 0 0;border-top:1px solid #f1e3d3;color:#9a3412;white-space:nowrap}
+.dstrip td b{text-transform:uppercase;letter-spacing:.1em;margin-left:6px}
+.dstrip td.r{text-align:left;color:#57534e}
 .ft{width:100%;border-top:1px solid #9a3412}.ft td{vertical-align:bottom;padding:6px 0 0 10px}
 .ft td.pgx{text-align:left;white-space:nowrap;padding-left:0}
-.fv-det td{font-size:9.6px;line-height:1.35}
+.fv-det td{font-size:10.2px;line-height:1.35}
 .fv-min td.pgc{text-align:center;padding-left:0}
 .fv-det,.fv-min{display:none}
 body.foot-det .fv-std,body.foot-min .fv-std{display:none}
@@ -84,52 +111,95 @@ body.nowords .words{display:none}
   .band{display:none!important}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
-.hdr{height:30mm;max-height:30mm}.art{margin-top:11mm}
-body{font-family:'Lato',sans-serif;font-size:12.2px;color:#292524}
+.hdr{height:40mm;max-height:40mm}.art{margin-top:2mm}
+.hdr .lg{height:36px!important}
+.hdr .lglive{height:52px!important;width:auto}
+.hdr .tg{font-size:10.7px!important;margin-top:1px!important}
+.hdr .co{font-size:10.7px!important;line-height:1.35!important}
+.hdr>table:first-child>tbody>tr>td{padding-bottom:4px!important}
+.bn{width:100%;margin-top:6px;border-collapse:separate;border-spacing:0}
+.bn td{vertical-align:middle;padding:5px 7px}
+.bn .bn-dt{font-size:10.7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.bn .bn-no{font-size:15.5px;font-weight:700;white-space:nowrap;line-height:1.25}
+.bn .lbl{font-size:9.4px;margin-bottom:1px;white-space:nowrap;letter-spacing:.04em}
+.bn .fv{font-size:11.7px;white-space:nowrap}
+.bn td.bn-hl{text-align:left}.bn td.bn-hl .fv{font-size:14.9px;font-weight:700}
+.bn .stamp{position:static;display:inline-block;width:auto;height:auto;line-height:1.3;border-radius:3px;-webkit-transform:none;transform:none;padding:0 6px;font-size:10.1px;margin:2px 0 0;letter-spacing:.1em}
+.topbc{text-align:left;margin-bottom:6px}
+/* comfortable line spacing in every design */
+body{line-height:1.55}
+.parties{line-height:1.55!important;margin-bottom:20px!important}
+.parties .lbl{margin-bottom:4px}
+.lines th{padding-top:7px!important;padding-bottom:7px!important}
+.lines tbody td{padding-top:7px!important;padding-bottom:7px!important;line-height:1.45}
+.lines .pd{margin-top:1px}
+.tot td{padding-top:5px!important;padding-bottom:5px!important}
+.lines tfoot td{padding-top:5px!important;padding-bottom:5px!important}
+.bside{margin-top:14px!important}
+.bankb .bt{line-height:1.6}
+.wline{margin-top:14px!important}
+.ftxt{margin-top:12px!important}
+.tlist{line-height:1.7}.tlist li{margin-bottom:3px}
+.hdr .co{line-height:1.5!important}
+.hinv{width:100%}.hinv td{vertical-align:bottom}
+.hinv td.hlogo{width:26%;padding-left:14px}
+.hdr .hinv .lg{height:auto!important;max-height:92px;max-width:100%;display:block}
+.bn-st .bn-big{font-size:23.4px;letter-spacing:.16em;line-height:1.2}
+.bn-st tr:first-child td{padding-top:8px;padding-bottom:4px}.topbc .docbc{display:inline-block;margin:0}
+
+body{font-family:'Lato',sans-serif;font-size:13.0px;color:#292524}
 .ga-hd{width:100%}.ga-hd td{vertical-align:bottom;padding-bottom:8px}
-.ga-hd .lg{height:44px;display:block}.ga-hd .tg{font-size:11px;color:#9a3412;margin-top:3px;font-style:italic}
-.co{text-align:left;font-size:10.6px;line-height:1.45;color:#44403c}
+.ga-hd .lg{height:44px;display:block}.ga-hd .tg{font-size:11.7px;color:#9a3412;margin-top:3px;font-style:italic}
+.co{text-align:left;font-size:11.3px;line-height:1.45;color:#44403c}
 .ga-rule{height:6px;background:#fef7ed;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa}
 .ga-top{width:100%;margin-bottom:12px;background:#fef7ed;border-radius:14px;border-collapse:separate;border-spacing:0}
 .ga-top>tbody>tr>td{padding:10px 14px;vertical-align:middle}
 .ga-top td.id{width:28%}
-.ga-top .dt{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#9a3412;font-weight:700}
-.ga-top h2{margin:2px 0 0;font-size:21px;font-weight:700;color:#292524}
+.ga-top .dt{font-size:11.2px;letter-spacing:.14em;text-transform:uppercase;color:#9a3412;font-weight:700}
+.ga-top h2{margin:2px 0 0;font-size:22.4px;font-weight:700;color:#292524}
 .ga-top .f2{width:100%}.ga-top .f2 td{padding:0 0 3px 10px;width:33.33%}
-.ga-top td.hl{text-align:left;width:22%}.ga-top .hv{font-size:19px;font-weight:700;color:#9a3412;white-space:nowrap}
+.ga-top td.hl{text-align:left;width:22%}.ga-top .hv{font-size:20.2px;font-weight:700;color:#9a3412;white-space:nowrap}
 .lines{border-collapse:separate;border-spacing:0 4px}
-.lines th{font-size:9.8px;text-transform:uppercase;letter-spacing:.08em;color:#57534e;font-weight:700;text-align:right;padding:0 8px}
+.lines th{font-size:10.4px;text-transform:uppercase;letter-spacing:.08em;color:#57534e;font-weight:700;text-align:right;padding:0 8px}
 .lines th.r{text-align:left}.lines th.c{text-align:center}
 .lines td{padding:5px 8px;background:#fffdf9;border-top:1px solid #f1e3d3;border-bottom:1px solid #f1e3d3;vertical-align:middle}
 .lines td:first-child{border-right:1px solid #f1e3d3;border-radius:0 10px 10px 0}
 .lines td:last-child{border-left:1px solid #f1e3d3;border-radius:10px 0 0 10px}
 .lines tr.sec td,.lines tr.note td{background:none;border:0;border-radius:0}
-.lines tr.sec td{color:#9a3412;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;padding:6px 2px 0}
+.lines tr.sec td{color:#9a3412;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:11.2px;padding:6px 2px 0}
 .lines tr.note td{font-style:italic;color:#57534e;padding:0 2px}
-.lines .pn{font-weight:700;font-size:12.6px}
+.lines .pn{font-weight:700;font-size:13.4px}
 .gimg{float:right;width:38px;height:38px;margin-left:10px;border-radius:8px;border:1px solid #f1e3d3;background:#fff}
-.gini{float:right;width:38px;height:38px;margin-left:10px;border-radius:8px;background:#fed7aa;color:#9a3412;font-weight:700;font-size:13px;text-align:center;line-height:38px}
+.gini{float:right;width:38px;height:38px;margin-left:10px;border-radius:8px;background:#fed7aa;color:#9a3412;font-weight:700;font-size:13.9px;text-align:center;line-height:38px}
 body.noimg .gimg,body.noimg .gini{display:none}
 .tot td{padding:3px 8px}
-.tot tr.total td{background:#9a3412;color:#fff;font-weight:700;font-size:13.5px;padding:6px 8px}
+.tot tr.total td{background:#9a3412;color:#fff;font-weight:700;font-size:14.4px;padding:6px 8px}
 .tot tr.total td:first-child{border-radius:0 8px 8px 0}.tot tr.total td:last-child{border-radius:8px 0 0 8px}
 .tot tr.due td{font-weight:700;color:#9a3412}.tot tr.pay td{font-style:italic}
-.stamp{position:static;display:inline-block;border:2px solid #15803d;color:#15803d;border-radius:999px;padding:0 10px;font-size:10.5px;font-weight:700;letter-spacing:.12em;margin-top:4px}
+.stamp{position:static;display:inline-block;border:2px solid #15803d;color:#15803d;border-radius:999px;padding:0 10px;font-size:11.2px;font-weight:700;letter-spacing:.12em;margin-top:4px}
 .ft{border-top:1px solid #fed7aa}
+
+.gah{width:100%;background:#fef7ed;border-radius:14px;border-collapse:separate;border-spacing:0}
+.gah>tbody>tr>td{padding:9px 12px;vertical-align:middle}.gah td.glg{width:18%}.gah td.id{width:26%}
+.gah .dt{font-size:11.2px;letter-spacing:.14em;text-transform:uppercase;color:#9a3412;font-weight:700}
+.gah .gno{font-size:19.2px;font-weight:700}
+.gah .f2{width:100%}.gah .f2 td{padding:0 0 3px 8px}.gah .lbl{color:#9a3412}
+.gaco{margin-top:4px}
 
 body{font-family:'Tajawal',sans-serif!important}
 *{letter-spacing:0!important}
 td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
-.ln,.tg,.pn,.pd,.ft td,.bank td,.pname{unicode-bidi:plaintext}
+.ln,.tg,.pn,.pd,.ft td,.bank td,.bt,.pname{unicode-bidi:plaintext}
 .arr{-webkit-transform:scaleX(-1);transform:scaleX(-1)}
 </style>
 </head>
-<body class="t-gallery">
-<div class="page" data-avail="213">
-<div class="band h" style="top:41mm">header limit 41mm</div><div class="band" style="top:52mm">body starts 52mm</div><div class="band" style="bottom:32mm">footer band 32mm</div>
-<div class="hdr"><table class="ga-hd"><tr><td><img class="lg" src="../../img/logo_gallery.svg" alt="Northwind Supply Co."><div class="tg">Industrial equipment, delivered on time.</div></td><td><div class="co"><div class="ln">250 Executive Park Blvd, Suite 3400</div><div class="ln">San Francisco CA 94134, United States</div><div class="ln">+1 (650) 691-3277 · info@northwind.example</div><div class="ln">Tax ID: US12345671</div></div></td></tr></table><div class="ga-rule"></div></div>
-<div class="art"><div class="wm">أصل</div><table class="ga-top"><tr><td class="id"><div class="dt">فاتورة ضريبية</div><h2>INV/2026/00042</h2></td><td><table class="f2"><tr><td><div class="lbl">تاريخ الفاتورة</div><div class="fv">09/18/2026</div></td><td><div class="lbl">تاريخ الاستحقاق</div><div class="fv">10/18/2026</div></td><td><div class="lbl">تاريخ التسليم</div><div class="fv">09/17/2026</div></td></tr><tr><td><div class="lbl">المصدر</div><div class="fv">S00231</div></td><td><div class="lbl">المرجع</div><div class="fv">PO-88213</div></td><td></td></tr></table></td><td class="hl"><div class="lbl">المبلغ المستحق</div><div class="hv">$ 2,259.84</div></td></tr></table><table class="parties"><tr><td class="p1"><div class="lbl">فوترة إلى</div><div class="pname">شركة النخبة للأثاث</div><div class="ln">شارع الشيخ زايد، برج الأفق، الطابق 12</div><div class="ln">دبي، الإمارات العربية المتحدة</div><div class="ln">الرقم الضريبي: 100234567800003</div></td><td class="p2"><div class="lbl">الشحن إلى</div><div class="pname">شركة النخبة للأثاث - مستودع جبل علي</div><div class="ln">المنطقة الحرة لجبل علي، المنطقة 4</div><div class="ln">دبي، الإمارات العربية المتحدة</div><div class="ln">+971 4 555 0142</div></td></tr></table><table class="lines"><thead><tr><th class="l k-product">الوصف</th><th class="r k-qty">الكمية</th><th class="r k-price">سعر الوحدة</th><th class="r k-disc">الخصم %</th><th class="r k-tax">الضرائب</th><th class="r k-amount">المبلغ</th></tr></thead><tbody><tr class="sec"><td colspan="6">باقة محطات العمل</td></tr><tr class=""><td class="l k-product"><img class="gimg" src="../../img/office_chair.svg" alt=""><div class="pbody"><div class="pn">[FURN_7800] كرسي مكتب أسود</div><div class="pd">ظهر شبكي مريح، مساند قابلة للتعديل</div></div></td><td class="r k-qty">4.00 وحدات</td><td class="r k-price">235.00</td><td class="r k-disc">10.00</td><td class="r k-tax">8.625%</td><td class="r k-amount">$ 846.00</td></tr><tr class=""><td class="l k-product"><img class="gimg" src="../../img/large_desk.svg" alt=""><div class="pbody"><div class="pn">[FURN_6666] مكتب كبير</div><div class="pd">160 × 80 سم، تشطيب خشب البلوط</div></div></td><td class="r k-qty">4.00 وحدات</td><td class="r k-price">650.00</td><td class="r k-disc"></td><td class="r k-tax">8.625%</td><td class="r k-amount">$ 2,600.00</td></tr><tr class=""><td class="l k-product"><img class="gimg" src="../../img/cable_box.svg" alt=""><div class="pbody"><div class="pn">[FURN_8900] صندوق تنظيم الكابلات</div></div></td><td class="r k-qty">8.00 وحدات</td><td class="r k-price">12.50</td><td class="r k-disc"></td><td class="r k-tax">8.625%</td><td class="r k-amount">$ 100.00</td></tr><tr class="note"><td colspan="6">تُشحن المكاتب مفككة. التركيب مشمول في الخدمات أدناه.</td></tr><tr class="sec"><td colspan="6">الخدمات</td></tr><tr class=""><td class="l k-product"><div class="gini">تف</div><div class="pbody"><div class="pn">[SERV_ASM] تركيب في الموقع</div><div class="pd">فنيان، نصف يوم</div></div></td><td class="r k-qty">6.00 ساعات</td><td class="r k-price">68.00</td><td class="r k-disc"></td><td class="r k-tax"></td><td class="r k-amount">$ 408.00</td></tr></tbody></table><table class="bside"><tr><td class="bl"><div class="blk words"><div class="lbl">المبلغ كتابةً</div><div class="wv">أربعة آلاف ومئتان وتسعة وخمسون دولاراً وأربعة وثمانون سنتاً</div></div><table class="payrow"><tr><td><div class="bankb"><div class="lbl">الدفع إلى</div><table class="bank"><tr><td class="bk">البنك</td><td class="v">Pacific Coast Bank</td><td class="bk">رقم التوجيه (ABA)</td><td class="v">121000358</td></tr><tr><td class="bk">الحساب</td><td class="v">4021 7783 1190</td><td class="bk">سويفت</td><td class="v">PCBKUS6S</td></tr><tr class="ref"><td class="bk">مرجع الدفع</td><td class="v" colspan="3"><b>INV/2026/00042</b></td></tr></table></div></td><td class="qrcell"><div class="qr"><div class="qrc" data-qr="https://northwind.example/my/invoices/42?access_token=7f3c2a9e"></div><div class="qcap">امسح للدفع عبر الإنترنت</div></div></td></tr></table></td><td class="br"><table class="tot"><tr class=""><td>المبلغ دون ضريبة</td><td class="r">$ 3,954.00</td></tr><tr class=""><td>ضريبة 8.625%</td><td class="r">$ 305.84</td></tr><tr class="total"><td>الإجمالي</td><td class="r">$ 4,259.84</td></tr><tr class="pay"><td>مدفوع في 09/20/2026</td><td class="r">$ 2,000.00</td></tr><tr class="due"><td>المبلغ المستحق</td><td class="r">$ 2,259.84</td></tr></table></td></tr></table><table class="fin"><tr><td class="ftx"><table class="txts"><tr><td><div class="lbl">شروط الدفع</div>30 يوماً. تم استلام دفعة جزئية بقيمة 2,000.00 دولار في 09/20/2026.</td><td><div class="lbl">الشروط والأحكام</div>تبقى البضائع ملكاً لشركة نورثويند للتوريدات حتى السداد الكامل. تُحتسب فائدة 1.5% شهرياً على المدفوعات المتأخرة.</td></tr></table></td><td class="fsig"><div class="sig"><div class="sigfor">عن Northwind Supply Co.</div><div class="sigline"><img class="cosig" src="../../img/signature_company.svg" alt=""></div><div class="cosigname">روبرت تشين، المدير المالي</div><div class="siglbl">المفوض بالتوقيع</div></div></td></tr></table></div>
-<div class="ftr"><table class="ft fv-std"><tr><td>Northwind Supply Co. · www.northwind.example · Registered in California, no. C1234567</td><td class="pgx">INV/2026/00042 · صفحة <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-det"><tr><td><b>Northwind Supply Co.</b><br>250 Executive Park Blvd, Suite 3400<br>San Francisco CA 94134, United States</td><td>+1 (650) 691-3277 · info@northwind.example<br>www.northwind.example<br>Registered in California, no. C1234567</td><td>Tax ID: US12345671<br>Pacific Coast Bank · 4021 7783 1190<br>Industrial equipment, delivered on time.</td><td class="pgx">INV/2026/00042 · صفحة <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-min"><tr><td class="pgc">INV/2026/00042 · صفحة <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table></div>
+<body class="t-gallery nosig show-contact show-sr show-bc show-stamp" data-primary="#9a3412">
+<div class="page" data-avail="212">
+<div class="hbg"></div><div class="fbg"></div>
+<div class="band h" style="top:51mm">header ends 51mm</div><div class="band" style="top:53mm">body starts 53mm</div><div class="band" style="bottom:32mm">footer band 32mm</div>
+<div class="hdr"><table class="hwrap"><tr><td><table class="gah"><tr><td class="glg"><img class="lg" src="../../img/logo_gallery.svg" alt="Northwind Supply Co."></td><td class="id"><div class="dt">فاتورة ضريبية</div><div class="gno">INV/2026/00042</div></td><td><table class="f2"><tr><td><div class="lbl">تاريخ الفاتورة</div><div class="fv">09/18/2026</div></td><td><div class="lbl">المرجع</div><div class="fv">PO-88213</div></td><td><div class="lbl">تاريخ الاستحقاق</div><div class="fv">10/18/2026</div></td></tr><tr><td><div class="lbl">أمر البيع</div><div class="fv">S00231</div></td><td><div class="lbl">تاريخ الطلب</div><div class="fv">09/10/2026</div></td><td></td></tr></table></td></tr></table></td></tr></table></div>
+<div class="art"><div class="wm">أصل</div><table class="parties"><tr><td class="p1"><div class="lbl">عنوان الفوترة والشحن</div><div class="pname">شركة النخبة للأثاث</div><div class="ln">شارع الشيخ زايد، برج الأفق، الطابق 12</div><div class="ln">دبي، الإمارات العربية المتحدة</div><div class="ln">الرقم الضريبي: 100234567800003</div><div class="ln pc">الجوال +971 4 555 0142</div><div class="ln pc">البريد accounts@alnokhba.example</div></td><td class="vf vx"><div class="px"><div class="lbl">الدفع إلى</div><div class="pname">Northwind Supply Co.</div><div class="ln">250 Executive Park Blvd, Suite 3400</div><div class="ln">San Francisco, California, 94134, United States</div><div class="ln">الجوال: +1 (650) 691-3277 · البريد: info@northwind.example</div><div class="bankb bare"><div class="bt">Pacific Coast Bank · الحساب 4021 7783 1190 · رقم التوجيه (ABA) 121000358 · سويفت PCBKUS6S</div></div></div></td></tr></table><table class="lines"><thead><tr><th class="r k-sr">م</th><th class="l k-product">الوصف</th><th class="r k-qty">الكمية</th><th class="r k-price">سعر الوحدة</th><th class="r k-disc">الخصم %</th><th class="r k-tax">الضرائب</th><th class="r k-amount">المبلغ</th></tr></thead><tbody><tr class="od "><td class="r k-sr">1</td><td class="l k-product"><img class="gimg" src="../../img/office_chair.svg" alt=""><div class="pbody"><div class="pn">[FURN_7800] كرسي مكتب أسود</div><div class="pd">ظهر شبكي مريح، مساند قابلة للتعديل</div></div></td><td class="r k-qty">4.00 وحدات</td><td class="r k-price">235.00</td><td class="r k-disc">10.00</td><td class="r k-tax">8.625%</td><td class="r k-amount">$ 846.00</td></tr><tr class="ev "><td class="r k-sr">2</td><td class="l k-product"><img class="gimg" src="../../img/large_desk.svg" alt=""><div class="pbody"><div class="pn">[FURN_6666] مكتب كبير</div><div class="pd">160 × 80 سم، تشطيب خشب البلوط</div></div></td><td class="r k-qty">4.00 وحدات</td><td class="r k-price">650.00</td><td class="r k-disc"></td><td class="r k-tax">8.625%</td><td class="r k-amount">$ 2,600.00</td></tr><tr class="od "><td class="r k-sr">3</td><td class="l k-product"><img class="gimg" src="../../img/cable_box.svg" alt=""><div class="pbody"><div class="pn">[FURN_8900] صندوق تنظيم الكابلات</div></div></td><td class="r k-qty">8.00 وحدات</td><td class="r k-price">12.50</td><td class="r k-disc"></td><td class="r k-tax">8.625%</td><td class="r k-amount">$ 100.00</td></tr><tr class="ev "><td class="r k-sr">4</td><td class="l k-product"><div class="gini">تف</div><div class="pbody"><div class="pn">[SERV_ASM] تركيب في الموقع</div><div class="pd">فنيان، نصف يوم</div></div></td><td class="r k-qty">6.00 ساعات</td><td class="r k-price">68.00</td><td class="r k-disc"></td><td class="r k-tax"></td><td class="r k-amount">$ 408.00</td></tr></tbody></table><table class="bside"><tr><td class="bl"><ul class="tlist"><li class="t-payterms"><b>شروط الدفع:</b> 30 يوماً</li><li class="t-terms"><b>ملاحظات:</b> تبقى البضائع ملكاً لنا حتى السداد الكامل.</li><li class="t-fiscal"><b>ملاحظة الوضع الضريبي:</b> ضريبة مبيعات بنسبة 8.625% وفق سعر سان فرانسيسكو.</li></ul></td><td class="br"><table class="tot"><tr class=""><td>المبلغ دون ضريبة</td><td class="r">$ 3,954.00</td></tr><tr class=""><td>ضريبة 8.625%</td><td class="r">$ 305.84</td></tr><tr class="total"><td>الإجمالي</td><td class="r">$ 4,259.84</td></tr></table></td></tr></table><div class="words wline"><span class="lbl">المبلغ كتابةً:</span> <span class="wv">أربعة آلاف ومئتان وتسعة وخمسون دولاراً وأربعة وثمانون سنتاً</span></div><table class="fin"><tr><td class="ftx"></td><td class="fbc"><svg data-bc="INV/2026/00042" data-h="26" data-w="1.1"></svg></td><td class="fseal"><img class="cstamp" src="../../img/company_stamp.svg" alt="Signature"></td></tr></table></div>
+<div class="ftr"><table class="ft fv-std"><tr><td>www.northwind.example · Registered in California, no. C1234567</td><td class="pgx">صفحة <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-det"><tr><td><b>Northwind Supply Co.</b><br>250 Executive Park Blvd, Suite 3400<br>San Francisco CA 94134, United States</td><td>+1 (650) 691-3277<br>info@northwind.example<br>www.northwind.example</td><td>Tax ID: US12345671<br>Pacific Coast Bank · 4021 7783 1190 · SWIFT PCBKUS6S</td><td class="pgx">صفحة <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-min"><tr><td class="pgc">صفحة <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
@@ -141,9 +211,14 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
   if(q.get('footer')==='detailed'){b.classList.add('foot-det');}
   if(q.get('footer')==='minimal'){b.classList.add('foot-min');}
   if(q.get('img')==='0'){b.classList.add('noimg');}
-  if(q.get('sig')==='0'){b.classList.add('nosig');}
+  if(q.get('sig')==='1'){b.classList.remove('nosig');}
   if(q.get('words')==='0'){b.classList.add('nowords');}
   if(q.get('wm')==='1'){b.classList.add('show-wm');}
+  if(q.get('dark')==='0'){b.classList.remove('dark');}
+  if(q.get('contact')==='0'){b.classList.remove('show-contact');}
+  if(q.get('sr')==='0'){b.classList.remove('show-sr');}
+  if(q.get('bc')==='0'){b.classList.remove('show-bc');}
+  if(q.get('cstamp')==='0'){b.classList.remove('show-stamp');}
   document.querySelectorAll('.wm').forEach(function(e){
     if(q.get('wmtext')){e.textContent=q.get('wmtext');}
     // size the word to its length so long text (CONFIDENTIAL) still fits the page
@@ -153,7 +228,7 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
     'Open Sans':'Open+Sans:ital,wght@0,400;0,600;0,700;1,400','Montserrat':'Montserrat:ital,wght@0,400;0,600;0,700;1,400',
     'Oswald':'Oswald:wght@400;500;600;700','Tajawal':'Tajawal:wght@400;500;700'};
   function loadFont(cb){
-    var f=q.get('font');
+    var f=cfg?cfg.font:q.get('font');
     if(!f||!FONTS[f]){cb();return;}
     var l=document.createElement('link');l.rel='stylesheet';
     l.href='https://fonts.googleapis.com/css2?family='+FONTS[f]+'&display=swap';
@@ -161,8 +236,42 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
     l.onerror=cb;document.head.appendChild(l);
   }
   function applySize(){
-    var fs=parseFloat(q.get('fs')||'1');
+    var fs=cfg?(+cfg.size||13)/13:parseFloat(q.get('fs')||'1');
     if(fs&&fs!==1){var a=document.querySelector('.art');a.style.zoom=fs;a.style.width=(100/fs)+'%';}
+  }
+  // Odoo backend "Default Report Settings" (company form), passed as ?cfg=base64(json)
+  var cfg=null;
+  try{if(q.get('cfg')){cfg=JSON.parse(decodeURIComponent(escape(atob(q.get('cfg')))));}}catch(e){cfg=null;}
+  if(!cfg&&window.DEFAULT_CFG){cfg=window.DEFAULT_CFG;}
+  function applyCfg(){
+    if(!cfg){return;}
+    var c=cfg,css='';
+    var stack=c.font==='Helvetica'?"Helvetica, Arial, sans-serif":"'"+c.font+"', sans-serif";
+    css+='body{color:'+c.gen+';font-family:'+stack+'!important}';
+    css+='.hdr .coname{color:'+c.coName+';font-weight:'+(c.coBold?700:400)+'}.hdr .co .ln{color:'+c.coAddr+'}';
+    var prim=(b.getAttribute('data-primary')||'').toLowerCase();
+    if(prim&&c.base){document.querySelectorAll('style').forEach(function(s){
+      s.textContent=s.textContent.split(prim).join(c.base);});}
+    css+='.lines tbody tr.od td{background:'+c.odd+'}.lines tbody tr.ev td{background:'+c.even+'}';
+    css+='.parties .pname{color:'+c.custName+';font-weight:'+(c.custBold?700:400)+'}.parties .ln{color:'+c.custAddr+'}';
+    if(!c.desc){css+='.pd{display:none}';}
+    if(!c.img){css+='.thumb,.gimg,.gini{display:none!important}';}
+    if(!c.words){css+='.words{display:none}';}
+    if(!c.notes){css+='.tlist li.t-terms,.tlist li.t-notes,.tlist li.t-fiscal{display:none}';}
+    if(!c.payNotes){css+='.tlist li.t-payterms{display:none}';}
+    if(!c.payDesc){css+='.tlist li.t-paycomm{display:none}';}
+    if(!c.barcode){css+='.fin td.fbc,.topbc{display:none!important}';}
+    css+='.cstamp{display:'+(c.sig?'block':'none')+'!important}';
+    var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+    b.classList.remove('foot-det','foot-min');
+    if(c.footer==='Detailed'||c.footer==='Multi Columns'){b.classList.add('foot-det');}
+    if(c.footer==='Minimal'){b.classList.add('foot-min');}
+    b.classList.toggle('show-wm',!!c.wm);
+    document.querySelectorAll('.wm').forEach(function(e){
+      if(c.wmType==='Logo'){e.innerHTML='<img src="../../img/logo_duet.svg" style="width:60%" alt="">';e.style.fontSize='';}
+      else{e.textContent=(c.wmType==='Status'?(c.status||'Draft'):(c.wmText||''));e.style.fontSize=(+c.wmSize||4)+'em';}
+      if(c.wmColor){e.style.color=c.wmColor;e.style.opacity='.18';}
+    });
   }
   function mm(v){return v*96/25.4;}
   function drawCodes(){
@@ -189,7 +298,7 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
     function floating(el){return el.classList.contains('wm')||el.classList.contains('stamp')||el.classList.contains('vword');}
     function newPage(){
       var p=first.cloneNode(false);
-      first.querySelectorAll('.band').forEach(function(x){p.appendChild(x.cloneNode(true));});
+      first.querySelectorAll('.band,.hbg,.fbg').forEach(function(x){p.appendChild(x.cloneNode(true));});
       p.appendChild(first.querySelector('.hdr').cloneNode(true));
       var a=document.createElement('div');a.className='art';a.style.cssText=art.style.cssText;
       if(wm){a.appendChild(wm.cloneNode(true));}
@@ -220,11 +329,23 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
             carry.forEach(function(x){tb.appendChild(x);});
           }
         });
+        if(el.tFoot){tb.parentNode.appendChild(el.tFoot.cloneNode(true));}
         return;
       }
       cur.appendChild(el);placed++;
       if(over()&&placed>1){cur.removeChild(el);newPage();cur.appendChild(el);placed++;}
     });
+    // Balance the last page: table, totals, notes and amount in words stay
+    // together at the top; only the closing row (barcode, signature) moves to
+    // the bottom of the page, with a small margin above the footer.
+    (function(){
+      var last=pages[pages.length-1], a=last.querySelector('.art');
+      var z=parseFloat(a.style.zoom)||1, free=(AV-a.getBoundingClientRect().height)/z-mm(4);
+      if(free<mm(8)){return;}
+      var fins=a.querySelectorAll(':scope > .fin'); if(!fins.length){return;}
+      var sp=document.createElement('div');sp.className='fill-b';sp.style.height=Math.round(free)+'px';
+      a.insertBefore(sp,fins[fins.length-1]);
+    })();
     var n=pages.length;
     pages.forEach(function(p,i){
       p.querySelectorAll('.pgn').forEach(function(e){e.textContent=i+1;});
@@ -232,7 +353,19 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
     });
     b.setAttribute('data-pages',n);
   }
+  // Line numbers are a real column: when switched off, take the column out
+  // (Odoo would simply not render it) and shrink spanning rows to match.
+  function dropSr(){
+    if(b.classList.contains('show-sr')){return;}
+    document.querySelectorAll('table.lines').forEach(function(t){
+      if(!t.querySelector('.k-sr')){return;}
+      t.querySelectorAll('.k-sr').forEach(function(c){c.parentNode.removeChild(c);});
+      t.querySelectorAll('td[colspan]').forEach(function(c){var n=+c.getAttribute('colspan');if(n>1&&n<99){c.setAttribute('colspan',n-1);}});
+    });
+  }
   window.addEventListener('load',function(){
+    applyCfg();
+    dropSr();
     drawCodes();
     loadFont(function(){
       applySize();
@@ -240,6 +373,7 @@ td.r,.fv,.hv,.v,.tot td,.pgx,.k-qty,.k-price,.k-amount{unicode-bidi:plaintext}
       ready.then(function(){
         if(q.get('measure')==='1'){var a=document.querySelector('.art');
           b.setAttribute('data-need',Math.round(a.getBoundingClientRect().height*25.4/96));
+          var h=document.querySelector('.hdr');b.setAttribute('data-hdr',Math.round(h.scrollHeight*25.4/96)+'/'+Math.round(h.clientHeight*25.4/96));
           b.setAttribute('data-parts',Array.prototype.map.call(a.children,function(c){
             return (c.className||c.tagName)+':'+Math.round(c.getBoundingClientRect().height*25.4/96);}).join('|'));
           return;}

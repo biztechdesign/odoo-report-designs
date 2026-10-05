@@ -9,12 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#9aa3ad;color:#1f2937;font-size:13px;line-height:1.45}
+body{margin:0;background:#9aa3ad;color:#1f2937;font-size:13.9px;line-height:1.45}
 .page{width:210mm;height:297mm;overflow:hidden;margin:24px auto;background:#fff;padding:11mm 11mm 0;position:relative;box-shadow:0 10px 40px rgba(0,0,0,.35)}
 .hdr{overflow:hidden}
+.hwrap{width:100%;height:100%}.hwrap>tbody>tr>td{vertical-align:bottom;padding:0}
 .art{position:relative}
-.ftr{position:absolute;left:11mm;right:11mm;bottom:11mm;max-height:16mm;overflow:hidden;font-size:11px;color:#374151}
-.band{display:none;position:absolute;left:0;right:0;border-top:1px dashed #d33;font-size:9px;color:#d33;padding-left:4px;z-index:9}
+.ftr{position:absolute;left:11mm;right:11mm;bottom:11mm;max-height:16mm;overflow:hidden;font-size:11.7px;color:#374151}
+.band{display:none;position:absolute;left:0;right:0;border-top:1px dashed #d33;font-size:9.6px;color:#d33;padding-left:4px;z-index:9}
 .band.h{border-color:#36c;color:#36c}
 body.bands .band{display:block}
 table{border-collapse:collapse}
@@ -23,12 +24,17 @@ caption{text-align:left}
 .lines{width:100%}
 .lines thead{display:table-header-group}
 .lines tr{page-break-inside:avoid}
+.lines tr.sec td{background:none!important;border-left:0!important;border-top:0!important;border-bottom:0!important;padding-top:8px!important}
+.lines tr.note td{border-top:0!important;border-bottom:0!important}
 .lines td.k-qty,.lines td.k-lot,.lines td.k-pack,.lines td.k-ordered,.lines td.k-delivered,.lines td.k-price,.lines td.k-amount,.lines td.k-date,.lines td.k-disc,.lines td.k-tax{white-space:nowrap}
 .r{text-align:right}.c{text-align:center}.l{text-align:left}.nowrap{white-space:nowrap}
-.lbl{text-transform:uppercase;letter-spacing:.06em;font-size:10.2px;font-weight:700;color:#c2410c;line-height:1.4;margin-bottom:2px}
+.lbl{text-transform:uppercase;letter-spacing:.06em;font-size:10.9px;font-weight:700;color:#c2410c;line-height:1.4;margin-bottom:2px}
 .pname{font-weight:700}
-.parties{width:100%;margin-bottom:14px;line-height:1.35}.parties td{padding:0 16px 0 0}
+.parties{width:100%;margin-bottom:18px;line-height:1.35}.parties td{padding:0 16px 0 0}
 .parties td.vf{width:25%;padding-right:0}.vf .f{margin-bottom:4px}
+.parties td.vf .px{text-align:left}
+.bankb.bare{margin-top:4px}.parties td.vx{width:46%}
+.parties .px .docbc{margin:0}
 .facts{width:100%;margin-bottom:14px}.facts td{padding:0 12px 0 0}
 .thumb{float:left;width:30px;height:30px;margin-right:8px;border:1px solid #e5e7eb;border-radius:4px;background:#fff}
 .pbody{overflow:hidden}
@@ -38,37 +44,58 @@ caption{text-align:left}
 .fill{display:inline-block;width:72px;border-bottom:1px solid #9ca3af;height:16px}
 .docbc{margin:6px 0 8px}.docbc svg{display:block;height:auto;max-width:100%}
 .tot{width:100%}.tot td{padding:4px 8px;white-space:nowrap}
-.bside{width:100%;margin-top:10px;page-break-inside:avoid}.bside td.bl{padding-right:18px}.bside td.br{width:44%}
+.bside{width:100%;margin-top:14px;page-break-inside:avoid}.bside td.bl{padding-right:18px}.bside td.br{width:44%}
 .blk{margin-bottom:8px}
 .wv{font-style:italic}
-.paycomm{font-size:12px}
+.wline{margin-top:8px;page-break-inside:avoid}
+.ftxt{margin-top:8px;page-break-inside:avoid}.wline .lbl{display:inline;margin:0}
+.bankb .bt{font-size:12.8px;line-height:1.55}
+.paycomm{font-size:12.8px}
 .payrow{width:100%}.payrow td{vertical-align:top}.payrow td.qrcell{width:88px;padding-left:12px}
-.bank td{padding:0 12px 0 0;line-height:1.6;font-size:12px;white-space:nowrap}.bank td.bk{color:#4b5563}
-.qr{text-align:center;font-size:10.5px;color:#4b5563}
+.bank td{padding:0 12px 0 0;line-height:1.6;font-size:12.8px;white-space:nowrap}.bank td.bk{color:#4b5563}
+.qr{text-align:center;font-size:11.2px;color:#4b5563}
 .qrc{width:72px;height:72px;margin:0 auto 3px}.qrc img,.qrc canvas{display:block;width:72px!important;height:72px!important}
-.sig{text-align:center;font-size:11.7px;color:#374151}
-.sig .sigfor{font-size:10.8px;color:#4b5563;text-align:left}
+.sig{text-align:center;font-size:12.5px;color:#374151}
+.sig .sigfor{font-size:11.5px;color:#4b5563;text-align:left}
 .sig .sigline{height:26px;border-bottom:1px solid #312e81;margin-bottom:3px}
 .cosig{display:block;height:34px;margin:-10px auto 0}
-.cosigname{font-size:11px;color:#374151}
-.sigcap{text-align:center;font-size:11.7px}
-.sigcap .sigimg{display:block;height:46px;margin:2px auto 0}
+.cosigname{font-size:11.7px;color:#374151}
+.sigcap{text-align:center;font-size:12.5px}
+.sigcap .sigimg{display:block;height:38px;margin:2px auto 0}
 .sigcap .signame{border-top:1px solid #312e81;padding-top:4px;font-weight:700}
-.sigcap .sigdate{color:#4b5563;font-size:11px}
+.sigcap .sigdate{color:#4b5563;font-size:11.7px}
 .fin{width:100%;margin-top:10px;page-break-inside:avoid}.fin td{vertical-align:bottom}.fin td.fsig{width:32%;padding-left:18px}
-.txts{width:100%}.txts td{padding-right:16px;font-size:12px;color:#374151;vertical-align:top}
+.txts{width:100%}.txts td{padding-right:16px;font-size:12.8px;color:#374151;vertical-align:top}
+.txts .lbl{white-space:nowrap}
+.tlist{margin:0;padding-left:18px;font-size:12.8px;line-height:1.6;color:#374151}
+.tlist li{margin-bottom:2px}.tlist li b{color:#111}
+.pill{display:inline-block;border-radius:999px;padding:1px 10px;font-size:11.7px;font-weight:700;white-space:nowrap}
+.pill.part{background:#fef3c7;color:#92400e}.pill.open{background:#fee2e2;color:#991b1b}.pill.paid{background:#dcfce7;color:#166534}
+.txts td.pst{width:1%;white-space:nowrap}
+.fin td.fseal{width:1%;padding-left:12px;vertical-align:bottom}
+.cstamp{display:none;width:64px;height:64px;opacity:.85;object-fit:contain}
+body.show-stamp .cstamp{display:block}
+.fin td.fbc{display:none;width:1%;padding-left:12px;vertical-align:bottom}.fin td.fbc svg{display:block;height:auto;max-width:180px}
+body.show-bc .fin td.fbc{display:table-cell}
+.pc{display:none}body.show-contact .pc{display:block}
+.lines .k-sr{color:#4b5563;width:24px}
 .bo{margin-top:12px;page-break-inside:avoid}.bo table{width:100%;margin-top:4px}
-.bo th{text-align:left;font-size:10.2px;text-transform:uppercase;letter-spacing:.06em;color:#4b5563;border-bottom:1px solid #312e81;padding:0 0 4px}
+.bo th{text-align:left;font-size:10.9px;text-transform:uppercase;letter-spacing:.06em;color:#4b5563;border-bottom:1px solid #312e81;padding:0 0 4px}
 .bo th.r{text-align:right}.bo td{padding:4px 0;border-bottom:1px solid #e5e7eb}
 .picksig{margin-top:18px;width:100%;page-break-inside:avoid}
-.picksig td{width:33.33%;padding-right:24px;font-size:11.5px;color:#4b5563;vertical-align:bottom}
+.picksig td{width:33.33%;padding-right:24px;font-size:12.3px;color:#4b5563;vertical-align:bottom}
 .picksig .sigline{border-bottom:1px solid #312e81;height:34px;margin-bottom:4px}
 .stamp{position:absolute;text-transform:uppercase;z-index:3;white-space:nowrap}
 .wm{display:none;position:absolute;top:300px;left:0;right:0;text-align:center;-webkit-transform:rotate(-30deg);transform:rotate(-30deg);opacity:.09;font-size:6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;z-index:1;color:#312e81}
 body.show-wm .wm{display:block}
+.dstrip{width:100%;margin-top:5px;font-size:11.2px}
+body>.page:first-of-type .not-first-page{visibility:hidden}
+.dstrip td{padding:3px 0 0;border-top:1px solid #e5e7eb;color:#312e81;white-space:nowrap}
+.dstrip td b{text-transform:uppercase;letter-spacing:.1em;margin-right:6px}
+.dstrip td.r{text-align:right;color:#4b5563}
 .ft{width:100%;border-top:1px solid #312e81}.ft td{vertical-align:bottom;padding:6px 10px 0 0}
 .ft td.pgx{text-align:right;white-space:nowrap;padding-right:0}
-.fv-det td{font-size:9.6px;line-height:1.35}
+.fv-det td{font-size:10.2px;line-height:1.35}
 .fv-min td.pgc{text-align:center;padding-right:0}
 .fv-det,.fv-min{display:none}
 body.foot-det .fv-std,body.foot-min .fv-std{display:none}
@@ -84,45 +111,90 @@ body.nowords .words{display:none}
   .band{display:none!important}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
-.hdr{height:30mm;max-height:30mm}.art{margin-top:11mm}
-body{font-family:'Montserrat',sans-serif;font-size:12.2px}
+.hdr{height:40mm;max-height:40mm}.art{margin-top:2mm}
+.hdr .lg{height:36px!important}
+.hdr .lglive{height:52px!important;width:auto}
+.hdr .tg{font-size:10.7px!important;margin-top:1px!important}
+.hdr .co{font-size:10.7px!important;line-height:1.35!important}
+.hdr>table:first-child>tbody>tr>td{padding-bottom:4px!important}
+.bn{width:100%;margin-top:6px;border-collapse:separate;border-spacing:0}
+.bn td{vertical-align:middle;padding:5px 7px}
+.bn .bn-dt{font-size:10.7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.bn .bn-no{font-size:15.5px;font-weight:700;white-space:nowrap;line-height:1.25}
+.bn .lbl{font-size:9.4px;margin-bottom:1px;white-space:nowrap;letter-spacing:.04em}
+.bn .fv{font-size:11.7px;white-space:nowrap}
+.bn td.bn-hl{text-align:right}.bn td.bn-hl .fv{font-size:14.9px;font-weight:700}
+.bn .stamp{position:static;display:inline-block;width:auto;height:auto;line-height:1.3;border-radius:3px;-webkit-transform:none;transform:none;padding:0 6px;font-size:10.1px;margin:2px 0 0;letter-spacing:.1em}
+.topbc{text-align:right;margin-bottom:6px}
+/* comfortable line spacing in every design */
+body{line-height:1.55}
+.parties{line-height:1.55!important;margin-bottom:20px!important}
+.parties .lbl{margin-bottom:4px}
+.lines th{padding-top:7px!important;padding-bottom:7px!important}
+.lines tbody td{padding-top:7px!important;padding-bottom:7px!important;line-height:1.45}
+.lines .pd{margin-top:1px}
+.tot td{padding-top:5px!important;padding-bottom:5px!important}
+.lines tfoot td{padding-top:5px!important;padding-bottom:5px!important}
+.bside{margin-top:14px!important}
+.bankb .bt{line-height:1.6}
+.wline{margin-top:14px!important}
+.ftxt{margin-top:12px!important}
+.tlist{line-height:1.7}.tlist li{margin-bottom:3px}
+.hdr .co{line-height:1.5!important}
+.hinv{width:100%}.hinv td{vertical-align:bottom}
+.hinv td.hlogo{width:26%;padding-right:14px}
+.hdr .hinv .lg{height:auto!important;max-height:92px;max-width:100%;display:block}
+.bn-st .bn-big{font-size:23.4px;letter-spacing:.16em;line-height:1.2}
+.bn-st tr:first-child td{padding-top:8px;padding-bottom:4px}.topbc .docbc{display:inline-block;margin:0}
+
+body{font-family:'Montserrat',sans-serif;font-size:13.0px}
 .mg-hd{width:100%}.mg-hd td{vertical-align:bottom}
-.mg-hd .lg{height:44px;display:block}.mg-hd .tg{font-size:10.8px;color:#4b5563;margin-top:3px}
-.co{text-align:right;font-size:10.6px;line-height:1.45;color:#374151}
+.mg-hd .lg{height:44px;display:block}.mg-hd .tg{font-size:11.5px;color:#4b5563;margin-top:3px}
+.co{text-align:right;font-size:11.3px;line-height:1.45;color:#374151}
 .mg-rule{height:1px;background:#c7d2fe;margin-top:8px}.mg-rule div{width:70px;height:3px;background:#c2410c;margin-top:-1px}
-.vword{position:absolute;left:-65.5mm;top:56.5mm;width:120mm;text-align:right;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);font-size:24px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:#c7d2fe;white-space:nowrap;line-height:1}
+.vword{position:absolute;left:-65.5mm;top:56.5mm;width:120mm;text-align:right;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);font-size:25.6px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:#c7d2fe;white-space:nowrap;line-height:1}
 .mg-top{width:100%;margin-bottom:12px}.mg-top td{vertical-align:bottom}
-.kick{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c2410c}
-.mg-top h2{margin:2px 0 0;font-size:25px;font-weight:700;color:#312e81;letter-spacing:-.01em;line-height:1.1}
+.kick{font-size:11.2px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c2410c}
+.mg-top h2{margin:2px 0 0;font-size:26.6px;font-weight:700;color:#312e81;letter-spacing:-.01em;line-height:1.1}
 .mg-top td.hlc{text-align:right}
 .hlbox{display:inline-block;border:2px solid #312e81;border-radius:8px;padding:5px 14px;text-align:right}
-.hlbox .lbl{color:#4b5563}.hlbox .hv{font-size:19px;font-weight:700;color:#312e81;white-space:nowrap}
+.hlbox .lbl{color:#4b5563}.hlbox .hv{font-size:20.2px;font-weight:700;color:#312e81;white-space:nowrap}
 .strip{width:100%;margin-bottom:12px;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb}
 .strip td{padding:5px 12px;border-left:1px solid #e5e7eb}.strip td:first-child{border-left:0;padding-left:0}
-.lines th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#312e81;font-weight:700;text-align:left;padding:6px;border-top:1px solid #312e81;border-bottom:2px solid #312e81}
+.lines th{font-size:10.7px;text-transform:uppercase;letter-spacing:.06em;color:#312e81;font-weight:700;text-align:left;padding:6px;border-top:1px solid #312e81;border-bottom:2px solid #312e81}
 .lines th.r{text-align:right}.lines th.c{text-align:center}
 .lines td{padding:5px 6px;border-bottom:1px solid #e5e7eb}
 .lines th:first-child,.lines td:first-child{padding-left:0}.lines th:last-child,.lines td:last-child{padding-right:0}
 .lines tr.sec td{background:#eef2ff;color:#312e81;font-weight:700;padding:4px 8px}
 .lines tr.note td{font-style:italic;color:#4b5563}
+.lines tfoot td{border:0!important;background:none!important;padding:3px 6px!important}
+.lines tfoot tr.tf:first-child td{padding-top:8px!important}
+.lines tfoot tr.total td{font-weight:700;color:#312e81;border-top:2px solid #312e81!important;padding-top:5px!important}
 .hbar{width:100%;margin-top:10px;page-break-inside:avoid;border-collapse:separate;border-spacing:6px 0}
 .hbar td{border:1px solid #e5e7eb;border-radius:8px;padding:5px 10px}
-.hbar .hk{font-size:9.6px;text-transform:uppercase;letter-spacing:.05em;color:#4b5563;font-weight:700;white-space:nowrap}
-.hbar .hv{font-size:13.5px;font-weight:700;white-space:nowrap;margin-top:2px}
+.hbar .hk{font-size:10.2px;text-transform:uppercase;letter-spacing:.05em;color:#4b5563;font-weight:700;white-space:nowrap}
+.hbar .hv{font-size:14.4px;font-weight:700;white-space:nowrap;margin-top:2px}
 .hbar td.total{background:#312e81;border-color:#312e81;color:#fff}.hbar td.total .hk{color:#c7d2fe}
 .hbar td.due{border:2px solid #c2410c}.hbar td.due .hv{color:#c2410c}
 .hbar td.pay .hv{font-weight:400;font-style:italic}
 .bpay{width:100%;margin-top:10px;page-break-inside:avoid}.bpay td.bl{width:46%;padding-right:18px}
-.stamp{top:21mm;right:0;border:2px solid #15803d;color:#15803d;border-radius:4px;padding:2px 10px;font-size:13px;font-weight:700;letter-spacing:.2em;-webkit-transform:rotate(-4deg);transform:rotate(-4deg)}
+.stamp{top:21mm;right:0;border:2px solid #15803d;color:#15803d;border-radius:4px;padding:2px 10px;font-size:13.9px;font-weight:700;letter-spacing:.2em;-webkit-transform:rotate(-4deg);transform:rotate(-4deg)}
 .ft{border-top:1px solid #c7d2fe}
+
+.mgh{width:100%;border-bottom:1px solid #e5e7eb}.mgh td{vertical-align:bottom;padding-bottom:6px}
+.mgh .kick{font-size:11.7px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c2410c}
+.mgh .mgno{font-size:27.7px;font-weight:700;color:#312e81;letter-spacing:-.01em;line-height:1.1}
+.mgh td.r{text-align:right}.mgh td.r .lg{display:inline-block}
+.hdr .strip{margin:6px 0 0}
 </style>
 </head>
-<body class="t-margin">
-<div class="page" data-avail="213">
-<div class="band h" style="top:41mm">header limit 41mm</div><div class="band" style="top:52mm">body starts 52mm</div><div class="band" style="bottom:32mm">footer band 32mm</div>
-<div class="hdr"><table class="mg-hd"><tr><td><img class="lg" src="../../img/logo_margin.svg" alt="Northwind Supply Co."><div class="tg">Industrial equipment, delivered on time.</div></td><td><div class="co"><div class="ln">250 Executive Park Blvd, Suite 3400</div><div class="ln">San Francisco CA 94134, United States</div><div class="ln">+1 (650) 691-3277 · info@northwind.example</div><div class="ln">Tax ID: US12345671</div></div></td></tr></table><div class="mg-rule"><div></div></div></div>
-<div class="art"><div class="wm">Original</div><div class="vword">Purchase Order</div><table class="mg-top"><tr><td><div class="kick">Purchase Order</div><h2>P00018</h2></td><td class="hlc"><div class="hlbox"><div class="lbl">Total</div><div class="hv">$ 4,985.50</div></div></td></tr></table><table class="strip"><tr><td><div class="lbl">Buyer</div><div class="fv">Mitchell Admin</div></td><td><div class="lbl">Your Order Ref.</div><div class="fv">WC-SO-5521</div></td><td><div class="lbl">Order Date</div><div class="fv">09/22/2026</div></td><td><div class="lbl">Expected Arrival</div><div class="fv">10/06/2026</div></td></tr></table><table class="parties"><tr><td class="p1"><div class="lbl">Vendor</div><div class="pname">Wood Corner</div><div class="ln">1839 Arbor Way</div><div class="ln">Turlock CA 95380</div><div class="ln">United States</div><div class="ln">Tax ID: US44508812</div></td><td class="p2"><div class="lbl">Ship To</div><div class="pname">Northwind Supply Co., SF Warehouse</div><div class="ln">1400 Marin St, Dock 3</div><div class="ln">San Francisco CA 94124</div><div class="ln">United States</div></td></tr></table><table class="lines"><thead><tr><th class="l k-product">Description</th><th class="r k-qty">Quantity</th><th class="r k-price">Unit Price</th><th class="r k-disc">Disc.%</th><th class="r k-amount">Amount</th></tr></thead><tbody><tr class=""><td class="l k-product"><div class="pn">[WC-OAK-120] Oak Desktop Panel 160 x 80 cm</div><div class="pd">FSC certified, 25 mm, unfinished</div></td><td class="r k-qty">20.00 Units</td><td class="r k-price">142.00</td><td class="r k-disc"></td><td class="r k-amount">$ 2,840.00</td></tr><tr class=""><td class="l k-product"><div class="pn">[WC-LEG-STL] Steel Desk Leg Frame</div><div class="pd">Powder-coated black, height 72 cm</div></td><td class="r k-qty">20.00 Units</td><td class="r k-price">96.50</td><td class="r k-disc">5.00</td><td class="r k-amount">$ 1,833.50</td></tr><tr class=""><td class="l k-product"><div class="pn">[WC-CAB-05] Cable Tray 120 cm</div></td><td class="r k-qty">40.00 Units</td><td class="r k-price">7.80</td><td class="r k-disc"></td><td class="r k-amount">$ 312.00</td></tr><tr class="note"><td colspan="5">Panels must be FSC certified. Include the certificate with the shipment.</td></tr></tbody></table><table class="hbar"><tr><td class=""><div class="hk">Untaxed Amount</div><div class="hv">$ 4,985.50</div></td><td class="total"><div class="hk">Total</div><div class="hv">$ 4,985.50</div></td></tr></table><table class="bpay"><tr><td class="bl"><div class="blk words"><div class="lbl">Amount in words</div><div class="wv">Four Thousand Nine Hundred Eighty-Five Dollars and Fifty Cents</div></div></td><td></td></tr></table><table class="fin"><tr><td class="ftx"><table class="txts"><tr><td><div class="lbl">Payment Terms</div>45 Days. Incoterm: DAP, San Francisco.</td><td><div class="lbl">Terms &amp; Conditions</div>Deliver Monday to Friday, 08:00 to 16:00, to dock 3. Quote P00018 on the delivery note and on your invoice.</td></tr></table></td><td class="fsig"><div class="sig"><div class="sigfor">For Northwind Supply Co.</div><div class="sigline"><img class="cosig" src="../../img/signature_company.svg" alt=""></div><div class="cosigname">Robert Chen, Finance Director</div><div class="siglbl">Authorised Buyer</div></div></td></tr></table></div>
-<div class="ftr"><table class="ft fv-std"><tr><td>Northwind Supply Co. · www.northwind.example · Registered in California, no. C1234567</td><td class="pgx">P00018 · Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-det"><tr><td><b>Northwind Supply Co.</b><br>250 Executive Park Blvd, Suite 3400<br>San Francisco CA 94134, United States</td><td>+1 (650) 691-3277 · info@northwind.example<br>www.northwind.example<br>Registered in California, no. C1234567</td><td>Tax ID: US12345671<br>Pacific Coast Bank · 4021 7783 1190<br>Industrial equipment, delivered on time.</td><td class="pgx">P00018 · Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-min"><tr><td class="pgc">P00018 · Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table></div>
+<body class="t-margin nosig show-contact show-sr show-bc show-stamp" data-primary="#312e81">
+<div class="page" data-avail="212">
+<div class="hbg"></div><div class="fbg"></div>
+<div class="band h" style="top:51mm">header ends 51mm</div><div class="band" style="top:53mm">body starts 53mm</div><div class="band" style="bottom:32mm">footer band 32mm</div>
+<div class="hdr"><table class="hwrap"><tr><td><table class="mgh"><tr><td><div class="kick">Purchase Order</div><div class="mgno">P00018</div></td><td class="r"><img class="lg" src="../../img/logo_margin.svg" alt="Northwind Supply Co."><div class="co"><div class="ln">250 Executive Park Blvd, Suite 3400, San Francisco CA 94134, United States</div><div class="ln">+1 (650) 691-3277 · info@northwind.example · Tax ID: US12345671</div></div></td></tr></table><table class="strip"><tr><td class=""><div class="lbl">Buyer</div><div class="fv">Mitchell Admin</div></td><td class=""><div class="lbl">Your Order Ref.</div><div class="fv">WC-SO-5521</div></td><td class=""><div class="lbl">Order Date</div><div class="fv">09/22/2026</div></td><td class=""><div class="lbl">Expected Arrival</div><div class="fv">10/06/2026</div></td></tr></table></td></tr></table></div>
+<div class="art"><div class="wm">Original</div><table class="parties"><tr><td class="p1"><div class="lbl">Vendor</div><div class="pname">Wood Corner</div><div class="ln">1839 Arbor Way</div><div class="ln">Turlock CA 95380</div><div class="ln">Tax ID: US44508812</div><div class="ln pc">Mobile +1 (209) 555-0199</div><div class="ln pc">Email sales@woodcorner.example</div></td><td class="p2"><div class="lbl">Ship To</div><div class="pname">Northwind Supply Co., SF Warehouse</div><div class="ln">1400 Marin St, Dock 3</div><div class="ln">San Francisco CA 94124</div><div class="ln pc">Mobile +1 (650) 691-3280</div><div class="ln pc">Email receiving@northwind.example</div></td></tr></table><table class="lines"><thead><tr><th class="r k-sr">Sr.</th><th class="l k-product">Description</th><th class="r k-qty">Quantity</th><th class="r k-price">Unit Price</th><th class="r k-disc">Disc.%</th><th class="r k-amount">Amount</th></tr></thead><tbody><tr class="od "><td class="r k-sr">1</td><td class="l k-product"><div class="pn">[WC-OAK-120] Oak Desktop Panel 160 x 80 cm</div><div class="pd">FSC certified, 25 mm, unfinished</div></td><td class="r k-qty">20.00 Units</td><td class="r k-price">142.00</td><td class="r k-disc"></td><td class="r k-amount">$ 2,840.00</td></tr><tr class="ev "><td class="r k-sr">2</td><td class="l k-product"><div class="pn">[WC-LEG-STL] Steel Desk Leg Frame</div><div class="pd">Powder-coated black, height 72 cm</div></td><td class="r k-qty">20.00 Units</td><td class="r k-price">96.50</td><td class="r k-disc">5.00</td><td class="r k-amount">$ 1,833.50</td></tr><tr class="od "><td class="r k-sr">3</td><td class="l k-product"><div class="pn">[WC-CAB-05] Cable Tray 120 cm</div></td><td class="r k-qty">40.00 Units</td><td class="r k-price">7.80</td><td class="r k-disc"></td><td class="r k-amount">$ 312.00</td></tr></tbody><tfoot><tr class="tf "><td colspan="5" class="r">Untaxed Amount</td><td class="r">$ 4,985.50</td></tr><tr class="tf total"><td colspan="5" class="r">Total</td><td class="r">$ 4,985.50</td></tr></tfoot></table><div class="words wline"><span class="lbl">Amount in words:</span> <span class="wv">Four Thousand Nine Hundred Eighty-Five Dollars and Fifty Cents</span></div><div class="ftxt"><ul class="tlist"><li class="t-payterms"><b>Payment Terms:</b> 45 Days, DAP San Francisco</li><li class="t-terms"><b>Notes:</b> Deliver Monday to Friday, 08:00 to 16:00, to dock 3.</li></ul></div><table class="fin"><tr><td class="ftx"></td><td class="fbc"><svg data-bc="P00018" data-h="26" data-w="1.1"></svg></td><td class="fseal"><img class="cstamp" src="../../img/company_stamp.svg" alt="Signature"></td></tr></table></div>
+<div class="ftr"><table class="ft fv-std"><tr><td>www.northwind.example · Registered in California, no. C1234567</td><td class="pgx">Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-det"><tr><td><b>Northwind Supply Co.</b><br>250 Executive Park Blvd, Suite 3400<br>San Francisco CA 94134, United States</td><td>+1 (650) 691-3277<br>info@northwind.example<br>www.northwind.example</td><td>Tax ID: US12345671<br>Pacific Coast Bank · 4021 7783 1190 · SWIFT PCBKUS6S</td><td class="pgx">Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-min"><tr><td class="pgc">Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
@@ -134,9 +206,14 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
   if(q.get('footer')==='detailed'){b.classList.add('foot-det');}
   if(q.get('footer')==='minimal'){b.classList.add('foot-min');}
   if(q.get('img')==='0'){b.classList.add('noimg');}
-  if(q.get('sig')==='0'){b.classList.add('nosig');}
+  if(q.get('sig')==='1'){b.classList.remove('nosig');}
   if(q.get('words')==='0'){b.classList.add('nowords');}
   if(q.get('wm')==='1'){b.classList.add('show-wm');}
+  if(q.get('dark')==='0'){b.classList.remove('dark');}
+  if(q.get('contact')==='0'){b.classList.remove('show-contact');}
+  if(q.get('sr')==='0'){b.classList.remove('show-sr');}
+  if(q.get('bc')==='0'){b.classList.remove('show-bc');}
+  if(q.get('cstamp')==='0'){b.classList.remove('show-stamp');}
   document.querySelectorAll('.wm').forEach(function(e){
     if(q.get('wmtext')){e.textContent=q.get('wmtext');}
     // size the word to its length so long text (CONFIDENTIAL) still fits the page
@@ -146,7 +223,7 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
     'Open Sans':'Open+Sans:ital,wght@0,400;0,600;0,700;1,400','Montserrat':'Montserrat:ital,wght@0,400;0,600;0,700;1,400',
     'Oswald':'Oswald:wght@400;500;600;700','Tajawal':'Tajawal:wght@400;500;700'};
   function loadFont(cb){
-    var f=q.get('font');
+    var f=cfg?cfg.font:q.get('font');
     if(!f||!FONTS[f]){cb();return;}
     var l=document.createElement('link');l.rel='stylesheet';
     l.href='https://fonts.googleapis.com/css2?family='+FONTS[f]+'&display=swap';
@@ -154,8 +231,42 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
     l.onerror=cb;document.head.appendChild(l);
   }
   function applySize(){
-    var fs=parseFloat(q.get('fs')||'1');
+    var fs=cfg?(+cfg.size||13)/13:parseFloat(q.get('fs')||'1');
     if(fs&&fs!==1){var a=document.querySelector('.art');a.style.zoom=fs;a.style.width=(100/fs)+'%';}
+  }
+  // Odoo backend "Default Report Settings" (company form), passed as ?cfg=base64(json)
+  var cfg=null;
+  try{if(q.get('cfg')){cfg=JSON.parse(decodeURIComponent(escape(atob(q.get('cfg')))));}}catch(e){cfg=null;}
+  if(!cfg&&window.DEFAULT_CFG){cfg=window.DEFAULT_CFG;}
+  function applyCfg(){
+    if(!cfg){return;}
+    var c=cfg,css='';
+    var stack=c.font==='Helvetica'?"Helvetica, Arial, sans-serif":"'"+c.font+"', sans-serif";
+    css+='body{color:'+c.gen+';font-family:'+stack+'!important}';
+    css+='.hdr .coname{color:'+c.coName+';font-weight:'+(c.coBold?700:400)+'}.hdr .co .ln{color:'+c.coAddr+'}';
+    var prim=(b.getAttribute('data-primary')||'').toLowerCase();
+    if(prim&&c.base){document.querySelectorAll('style').forEach(function(s){
+      s.textContent=s.textContent.split(prim).join(c.base);});}
+    css+='.lines tbody tr.od td{background:'+c.odd+'}.lines tbody tr.ev td{background:'+c.even+'}';
+    css+='.parties .pname{color:'+c.custName+';font-weight:'+(c.custBold?700:400)+'}.parties .ln{color:'+c.custAddr+'}';
+    if(!c.desc){css+='.pd{display:none}';}
+    if(!c.img){css+='.thumb,.gimg,.gini{display:none!important}';}
+    if(!c.words){css+='.words{display:none}';}
+    if(!c.notes){css+='.tlist li.t-terms,.tlist li.t-notes,.tlist li.t-fiscal{display:none}';}
+    if(!c.payNotes){css+='.tlist li.t-payterms{display:none}';}
+    if(!c.payDesc){css+='.tlist li.t-paycomm{display:none}';}
+    if(!c.barcode){css+='.fin td.fbc,.topbc{display:none!important}';}
+    css+='.cstamp{display:'+(c.sig?'block':'none')+'!important}';
+    var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+    b.classList.remove('foot-det','foot-min');
+    if(c.footer==='Detailed'||c.footer==='Multi Columns'){b.classList.add('foot-det');}
+    if(c.footer==='Minimal'){b.classList.add('foot-min');}
+    b.classList.toggle('show-wm',!!c.wm);
+    document.querySelectorAll('.wm').forEach(function(e){
+      if(c.wmType==='Logo'){e.innerHTML='<img src="../../img/logo_duet.svg" style="width:60%" alt="">';e.style.fontSize='';}
+      else{e.textContent=(c.wmType==='Status'?(c.status||'Draft'):(c.wmText||''));e.style.fontSize=(+c.wmSize||4)+'em';}
+      if(c.wmColor){e.style.color=c.wmColor;e.style.opacity='.18';}
+    });
   }
   function mm(v){return v*96/25.4;}
   function drawCodes(){
@@ -182,7 +293,7 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
     function floating(el){return el.classList.contains('wm')||el.classList.contains('stamp')||el.classList.contains('vword');}
     function newPage(){
       var p=first.cloneNode(false);
-      first.querySelectorAll('.band').forEach(function(x){p.appendChild(x.cloneNode(true));});
+      first.querySelectorAll('.band,.hbg,.fbg').forEach(function(x){p.appendChild(x.cloneNode(true));});
       p.appendChild(first.querySelector('.hdr').cloneNode(true));
       var a=document.createElement('div');a.className='art';a.style.cssText=art.style.cssText;
       if(wm){a.appendChild(wm.cloneNode(true));}
@@ -213,11 +324,23 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
             carry.forEach(function(x){tb.appendChild(x);});
           }
         });
+        if(el.tFoot){tb.parentNode.appendChild(el.tFoot.cloneNode(true));}
         return;
       }
       cur.appendChild(el);placed++;
       if(over()&&placed>1){cur.removeChild(el);newPage();cur.appendChild(el);placed++;}
     });
+    // Balance the last page: table, totals, notes and amount in words stay
+    // together at the top; only the closing row (barcode, signature) moves to
+    // the bottom of the page, with a small margin above the footer.
+    (function(){
+      var last=pages[pages.length-1], a=last.querySelector('.art');
+      var z=parseFloat(a.style.zoom)||1, free=(AV-a.getBoundingClientRect().height)/z-mm(4);
+      if(free<mm(8)){return;}
+      var fins=a.querySelectorAll(':scope > .fin'); if(!fins.length){return;}
+      var sp=document.createElement('div');sp.className='fill-b';sp.style.height=Math.round(free)+'px';
+      a.insertBefore(sp,fins[fins.length-1]);
+    })();
     var n=pages.length;
     pages.forEach(function(p,i){
       p.querySelectorAll('.pgn').forEach(function(e){e.textContent=i+1;});
@@ -225,7 +348,19 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
     });
     b.setAttribute('data-pages',n);
   }
+  // Line numbers are a real column: when switched off, take the column out
+  // (Odoo would simply not render it) and shrink spanning rows to match.
+  function dropSr(){
+    if(b.classList.contains('show-sr')){return;}
+    document.querySelectorAll('table.lines').forEach(function(t){
+      if(!t.querySelector('.k-sr')){return;}
+      t.querySelectorAll('.k-sr').forEach(function(c){c.parentNode.removeChild(c);});
+      t.querySelectorAll('td[colspan]').forEach(function(c){var n=+c.getAttribute('colspan');if(n>1&&n<99){c.setAttribute('colspan',n-1);}});
+    });
+  }
   window.addEventListener('load',function(){
+    applyCfg();
+    dropSr();
     drawCodes();
     loadFont(function(){
       applySize();
@@ -233,6 +368,7 @@ body{font-family:'Montserrat',sans-serif;font-size:12.2px}
       ready.then(function(){
         if(q.get('measure')==='1'){var a=document.querySelector('.art');
           b.setAttribute('data-need',Math.round(a.getBoundingClientRect().height*25.4/96));
+          var h=document.querySelector('.hdr');b.setAttribute('data-hdr',Math.round(h.scrollHeight*25.4/96)+'/'+Math.round(h.clientHeight*25.4/96));
           b.setAttribute('data-parts',Array.prototype.map.call(a.children,function(c){
             return (c.className||c.tagName)+':'+Math.round(c.getBoundingClientRect().height*25.4/96);}).join('|'));
           return;}
