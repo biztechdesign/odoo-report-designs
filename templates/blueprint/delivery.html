@@ -50,6 +50,7 @@ caption{text-align:left}
 .blk{margin-bottom:8px}
 .wv{font-style:italic}
 .wline{margin-top:8px;page-break-inside:avoid}
+.wline.bankl{margin-top:6px!important}
 .ftxt{margin-top:8px;page-break-inside:avoid}.wline .lbl{display:inline;margin:0}
 .bankb{margin-bottom:8px}.bankb .bt{font-size:12.8px;line-height:1.55}
 .paycomm{font-size:12.8px}
@@ -188,7 +189,7 @@ caption .blkh{border-bottom:0;margin-bottom:4px}
 body.dark .hbg{display:block;position:absolute;left:0;right:0;top:0;height:50mm;background:#0f1f3d;z-index:0}
 body.dark .fbg{display:block;position:absolute;left:0;right:0;bottom:0;height:32mm;background:#0f1f3d;z-index:0}
 body.dark .hdr{position:relative;z-index:1;margin-top:-11mm;height:50mm!important;max-height:50mm!important}
-body.dark .hwrap>tbody>tr>td{vertical-align:middle}
+body.dark .hwrap>tbody>tr>td{vertical-align:middle;padding-top:10mm!important}
 body.dark .art{margin-top:3mm}
 body.dark .ftr{z-index:1}
 body.dark .hdr,body.dark .hdr .lbl,body.dark .hdr .fv,body.dark .hdr .co,body.dark .hdr .ln,body.dark .hdr td,body.dark .hdr div{color:#f3f4f6}
@@ -202,6 +203,9 @@ body.dark .tbh{border-color:#60a5fa!important}
 body.dark .tbh td.id{background:rgba(255,255,255,.06)}
 body.dark .tbh .dt{color:#93c5fd!important}
 body.dark .tbh .tbno{color:#fff!important}
+
+body.dark .hbg{background-image:url(../../img/pat_blueprint_h.svg);background-repeat:no-repeat;background-position:0 0}
+body.dark .fbg{background-image:url(../../img/pat_blueprint_f.svg);background-repeat:no-repeat;background-position:0 0}
 </style>
 </head>
 <body class="t-blueprint dark nosig show-contact show-sr show-bc show-stamp" data-primary="#1d4ed8">
@@ -209,7 +213,7 @@ body.dark .tbh .tbno{color:#fff!important}
 <div class="hbg"></div><div class="fbg"></div>
 <div class="band h" style="top:51mm">header ends 51mm</div><div class="band" style="top:53mm">body starts 53mm</div><div class="band" style="bottom:32mm">footer band 32mm</div>
 <div class="hdr"><table class="hwrap"><tr><td><div class="bpco"><div class="co"><div class="ln">250 Executive Park Blvd, Suite 3400, San Francisco CA 94134, United States</div><div class="ln">+1 (650) 691-3277 · info@northwind.example · Tax ID: US12345671</div></div></div><table class="tbh"><tr><td class="lgc" rowspan="2"><img class="lg" src="../../img/logo_blueprint.svg" alt="Northwind Supply Co."></td><td class="id" rowspan="2"><div class="dt">Delivery Note</div><div class="tbno">WH/OUT/00031</div></td><td class=""><div class="lbl">Order</div><div class="fv">S00231</div></td></tr><tr><td class=""><div class="lbl">Shipping Date</div><div class="fv">09/17/2026</div></td></tr></table></td></tr></table></div>
-<div class="art"><div class="wm">Original</div><table class="parties n2"><tr><td class="p1"><div class="lbl"><span class="sn">01</span>Deliver To</div><div class="pname">Deco Addict, Warehouse 2</div><div class="ln">1200 Contra Costa Blvd</div><div class="ln">Pleasant Hill CA 94523</div><div class="ln pc">+1 (925) 555-0177</div><div class="ln pc">warehouse@decoaddict.example</div></td><td class="p2"><div class="lbl"><span class="sn">02</span>Ship From</div><div class="pname">Northwind Supply Co., SF Warehouse</div><div class="ln">1400 Marin St, Dock 3</div><div class="ln">San Francisco CA 94124</div></td></tr></table><table class="lines"><caption><div class="blkh"><span class="sn">03</span>Items shipped</div></caption><thead><tr><th class="r k-sr">Sr.</th><th class="l k-product">Product</th><th class="l k-lot">Lot/Serial</th><th class="r k-ordered">Ordered</th><th class="r k-delivered">Delivered</th></tr></thead><tbody><tr class="od "><td class="r k-sr">1</td><td class="l k-product"><img class="thumb" src="../../img/office_chair.svg" alt=""><div class="pbody"><div class="pn">[FURN_7800] Office Chair Black</div></div></td><td class="l k-lot">LOT-2609-A</td><td class="r k-ordered">4.00 Units</td><td class="r k-delivered">4.00 Units</td></tr><tr class="ev "><td class="r k-sr">2</td><td class="l k-product"><img class="thumb" src="../../img/large_desk.svg" alt=""><div class="pbody"><div class="pn">[FURN_6666] Large Desk</div></div></td><td class="l k-lot"></td><td class="r k-ordered">4.00 Units</td><td class="r k-delivered">3.00 Units</td></tr><tr class="od "><td class="r k-sr">3</td><td class="l k-product"><img class="thumb" src="../../img/cable_box.svg" alt=""><div class="pbody"><div class="pn">[FURN_8900] Cable Management Box</div></div></td><td class="l k-lot"></td><td class="r k-ordered">8.00 Units</td><td class="r k-delivered">8.00 Units</td></tr></tbody></table><div class="bo"><div class="lbl">Remaining quantities not yet delivered (backorder WH/OUT/00032)</div><table><thead><tr><th>Product</th><th class="r">Quantity</th><th class="r">Expected</th></tr></thead><tbody><tr><td>[FURN_6666] Large Desk</td><td class="r">1.00 Units</td><td class="r">10/01/2026</td></tr></tbody></table></div><table class="fin"><tr><td class="ftx"></td><td class="fbc"><svg data-bc="WH/OUT/00031" data-h="26" data-w="1.1"></svg></td><td class="fsig"><div class="sigcap"><div class="lbl">Signature</div><img class="sigimg" src="../../img/signature.svg" alt="Signature"><div class="signame">Jane Cooper</div><div class="sigdate"></div></div></td><td class="fseal"><img class="cstamp" src="../../img/company_stamp.svg" alt="Signature"></td></tr></table></div>
+<div class="art"><div class="wm">Original</div><table class="parties n2"><tr><td class="p1"><div class="lbl"><span class="sn">01</span>Deliver To</div><div class="pname">Deco Addict, Warehouse 2</div><div class="ln">1200 Contra Costa Blvd</div><div class="ln">Pleasant Hill CA 94523</div><div class="ln pc">+1 (925) 555-0177</div><div class="ln pc">warehouse@decoaddict.example</div></td><td class="p2"><div class="lbl"><span class="sn">02</span>Ship From</div><div class="pname">Northwind Supply Co., SF Warehouse</div><div class="ln">1400 Marin St, Dock 3</div><div class="ln">San Francisco CA 94124</div></td></tr></table><table class="lines "><caption><div class="blkh"><span class="sn">03</span>Items shipped</div></caption><thead><tr><th class="r k-sr">Sr.</th><th class="l k-product">Product</th><th class="l k-lot">Lot/Serial</th><th class="r k-ordered">Ordered</th><th class="r k-delivered">Delivered</th></tr></thead><tbody><tr class="od "><td class="r k-sr">1</td><td class="l k-product"><img class="thumb" src="../../img/office_chair.svg" alt=""><div class="pbody"><div class="pn">[FURN_7800] Office Chair Black</div></div></td><td class="l k-lot">LOT-2609-A</td><td class="r k-ordered">4.00 Units</td><td class="r k-delivered">4.00 Units</td></tr><tr class="ev "><td class="r k-sr">2</td><td class="l k-product"><img class="thumb" src="../../img/large_desk.svg" alt=""><div class="pbody"><div class="pn">[FURN_6666] Large Desk</div></div></td><td class="l k-lot"></td><td class="r k-ordered">4.00 Units</td><td class="r k-delivered">3.00 Units</td></tr><tr class="od "><td class="r k-sr">3</td><td class="l k-product"><img class="thumb" src="../../img/cable_box.svg" alt=""><div class="pbody"><div class="pn">[FURN_8900] Cable Management Box</div></div></td><td class="l k-lot"></td><td class="r k-ordered">8.00 Units</td><td class="r k-delivered">8.00 Units</td></tr></tbody></table><div class="bo"><div class="lbl">Remaining quantities not yet delivered (backorder WH/OUT/00032)</div><table><thead><tr><th>Product</th><th class="r">Quantity</th><th class="r">Expected</th></tr></thead><tbody><tr><td>[FURN_6666] Large Desk</td><td class="r">1.00 Units</td><td class="r">10/01/2026</td></tr></tbody></table></div><table class="fin"><tr><td class="ftx"></td><td class="fbc"><svg data-bc="WH/OUT/00031" data-h="26" data-w="1.1"></svg></td><td class="fsig"><div class="sigcap"><div class="lbl">Signature</div><img class="sigimg" src="../../img/signature.svg" alt="Signature"><div class="signame">Jane Cooper</div><div class="sigdate"></div></div></td><td class="fseal"><img class="cstamp" src="../../img/company_stamp.svg" alt="Signature"></td></tr></table></div>
 <div class="ftr"><table class="ft fv-std"><tr><td>www.northwind.example · Registered in California, no. C1234567</td><td class="pgx">Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-det"><tr><td><b>Northwind Supply Co.</b><br>250 Executive Park Blvd, Suite 3400<br>San Francisco CA 94134, United States</td><td>+1 (650) 691-3277<br>info@northwind.example<br>www.northwind.example</td><td>Tax ID: US12345671<br>Pacific Coast Bank · 4021 7783 1190 · SWIFT PCBKUS6S</td><td class="pgx">Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table><table class="ft fv-min"><tr><td class="pgc">Page <span class="pgn">1</span> / <span class="pgt">1</span></td></tr></table></div>
 </div>
 
@@ -271,8 +275,16 @@ body.dark .tbh .tbno{color:#fff!important}
     if(!c.notes){css+='.tlist li.t-terms,.tlist li.t-notes,.tlist li.t-fiscal{display:none}';}
     if(!c.payNotes){css+='.tlist li.t-payterms{display:none}';}
     if(!c.payDesc){css+='.tlist li.t-paycomm{display:none}';}
-    if(!c.barcode){css+='.fin td.fbc,.topbc{display:none!important}';}
+    if(!c.barcode){css+='.fin td.fbc,.topbc,.bbbc{display:none!important}';}
     css+='.cstamp{display:'+(c.sig?'block':'none')+'!important}';
+    if(c.bg!==undefined){
+      var bg='';
+      if(c.bg==='custom'){try{bg=localStorage.getItem('report_bg')||'';}catch(e){}}
+      else if(c.bg==='sample'){bg='../../img/bg_letterhead.svg';}
+      css+=bg?'.page{background:#fff url("'+bg+'") no-repeat 0 0!important;-webkit-background-size:100% 100%;background-size:100% 100%}'
+              +'.hbg,.fbg{background-image:none!important}'      // the image replaces the design's own edge pattern
+            :'.page{background:#fff!important}';
+    }
     var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
     b.classList.remove('foot-det','foot-min');
     if(c.footer==='Detailed'||c.footer==='Multi Columns'){b.classList.add('foot-det');}
@@ -353,6 +365,14 @@ body.dark .tbh .tbno{color:#fff!important}
       var last=pages[pages.length-1], a=last.querySelector('.art');
       var z=parseFloat(a.style.zoom)||1, free=(AV-a.getBoundingClientRect().height)/z-mm(4);
       if(free<mm(8)){return;}
+      var st=a.querySelector(':scope > table.lines.stretch');
+      if(st){
+        var tr=document.createElement('tr');tr.className='fillrow';
+        var sts=a.querySelectorAll(':scope > table.lines.stretch');st=sts[sts.length-1];
+        var nc=0;Array.prototype.forEach.call(st.rows[0].cells,function(c){nc+=c.colSpan;});
+        for(var i=0;i<nc;i++){tr.appendChild(document.createElement('td'));}
+        tr.style.height=Math.round(free)+'px';st.tBodies[0].appendChild(tr);return;
+      }
       var fins=a.querySelectorAll(':scope > .fin'); if(!fins.length){return;}
       var sp=document.createElement('div');sp.className='fill-b';sp.style.height=Math.round(free)+'px';
       a.insertBefore(sp,fins[fins.length-1]);

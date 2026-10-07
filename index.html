@@ -85,6 +85,8 @@
   .cfg .sub { font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:8px 0 2px; }
   .cfg .sub:first-child { margin-top:2px; }
   #odoo-cfg .note { font-size:12.5px; color:var(--muted); margin:-2px 0 8px; }
+  .cfg .hint { display:block; color:#6b7280; font-size:12px; line-height:1.4; margin:2px 0 4px; }
+  .cfg input[type=file] { width:118px; font-size:11px; }
   .cfg label.c { display:flex; justify-content:space-between; align-items:center; gap:10px; }
   .cfg label.c select, .cfg label.c input[type=text], .cfg label.c input[type=number] { width:118px; margin:0; }
   .cfg input[type=color] { width:38px; height:26px; padding:0; border:1px solid var(--line); border-radius:4px; background:#fff; }
@@ -112,7 +114,7 @@
 <header>
   <div>
     <h1>Report Template Designs</h1>
-    <p>10 designs &middot; 6 documents &middot; A4</p>
+    <p>16 designs &middot; 6 documents &middot; A4</p>
   </div>
   <div class="spacer"></div>
   <div class="tabs" role="tablist">
@@ -122,7 +124,7 @@
 </header>
 
 <section id="overview">
-  <h2 class="sec">The ten designs</h2>
+  <h2 class="sec">The sixteen designs</h2>
   <p class="lead">Click a design to open it in the viewer.</p>
   <div class="cards" id="cards"></div>
 
@@ -186,6 +188,14 @@
             <label class="c">Select Report Footer <select data-k="footer"><option>Standard</option><option>Multi Columns</option><option>Minimal</option></select></label>
           </div>
         </details>
+        <details class="grp" open>
+          <summary>Background image</summary>
+          <div class="cfg">
+            <label class="c">Report Background <select data-k="bg"><option value="">None</option><option value="sample">Sample letterhead</option><option value="custom">Uploaded image</option></select></label>
+            <label class="c">Upload Background Image <input type="file" id="bg-file" accept="image/png,image/jpeg,image/svg+xml"></label>
+            <small class="hint">A4 portrait image (210 x 297 mm), shown behind every page in place of the design's own edge pattern. Made for the Stationery design; works on all.</small>
+          </div>
+        </details>
         <details class="grp">
           <summary>Watermark</summary>
           <div class="cfg">
@@ -206,7 +216,7 @@
 </section>
 
 <script>
-var DESIGNS = [{"key": "margin", "name": "Margin", "colours": ["#312e81", "#c2410c"], "font": "Montserrat", "idea": "Title on the left, logo on the right, details on one ruled strip. Totals close the item table.", "points": ["Coral accent under the header", "Key facts on one ruled strip", "Totals are the last rows of the item table"], "best": "Agencies, services, consultancies"}, {"key": "monogram", "name": "Monogram", "colours": ["#14532d", "#a16207"], "font": "Lato", "idea": "Centred and symmetrical, with mirrored addresses and a round seal stamp.", "points": ["Ruled, letter-spaced title over the number", "Facts centred in one line", "Payment and totals as two mirrored halves"], "best": "Hospitality, retail, premium brands"}, {"key": "blueprint", "name": "Blueprint", "colours": ["#1d4ed8", "#0f172a"], "font": "Roboto", "idea": "An engineering title block with a dark header and footer, and numbered sections.", "points": ["Title block with every fact in one grid", "Numbered sections for addresses and terms", "Full grid lines, tabular figures"], "best": "Manufacturing, engineering, distribution"}, {"key": "duet", "name": "Duet", "colours": ["#6b21a8", "#e9d5ff"], "font": "Open Sans", "idea": "A filled summary card at the top, matched by a filled totals panel at the bottom.", "points": ["Dates, references and amount due in one card", "Notes sit beside the totals", "Totals panel echoes the card"], "best": "E-commerce, SaaS, consumer brands"}, {"key": "remit", "name": "Remit", "colours": ["#1f2937", "#c2410c"], "font": "Lato", "idea": "Document type and number in a bold header, boxed details and black label bars.", "points": ["Document type and number repeat in every page header", "Filled table header and zebra rows", "Dark header and footer, black label bars"], "best": "Wholesale, B2B, US-style billing"}, {"key": "route", "name": "Route", "colours": ["#0e7490", "#b45309"], "font": "Roboto", "idea": "A ticket-style header strip with a barcode stub to scan the document number.", "points": ["Number and key details in one ticket strip", "Code 128 barcode of the document number on every document", "Dashed tear-line styling"], "best": "Logistics, distribution, field services"}, {"key": "tally", "name": "Tally", "colours": ["#9f1239", "#334155"], "font": "Open Sans", "idea": "Numbered lines with a running total, and running quantity on stock documents, to check long lists fast.", "points": ["Running total column on priced documents", "Running quantity on delivery, picking and RFQ", "Heavier rule every five lines, double-ruled total"], "best": "Wholesale, long orders, accounts teams"}, {"key": "headline", "name": "Headline", "colours": ["#111111", "#a3e635"], "font": "Montserrat", "idea": "Typographic: a large document number on a black header, with a black footer.", "points": ["Large number, details in two columns beside it", "Large total with a highlight", "Black rules, lime highlight only"], "best": "Creative studios, startups, modern brands"}, {"key": "gallery", "name": "Gallery", "colours": ["#9a3412", "#fed7aa"], "font": "Lato", "idea": "Card-style rows with large product pictures, for businesses that sell by look.", "points": ["Large product pictures on every line", "Initials badge when a product has no image", "Soft sand summary panel"], "best": "Furniture, fashion, home goods, catalogues. Needs more pages on long orders"}, {"key": "swiss", "name": "Swiss", "colours": ["#111111", "#dc2626"], "font": "Roboto", "idea": "One strict label column down the whole page, black type and a single red accent.", "points": ["Document, Parties, Items, Payment and Terms rows", "Notes and totals side by side", "Large document title with a red full stop"], "best": "Consultancies, architects, professional services"}];
+var DESIGNS = [{"key": "margin", "name": "Margin", "colours": ["#312e81", "#c2410c"], "font": "Montserrat", "idea": "Title on the left, logo on the right, details on one ruled strip. Totals close the item table.", "points": ["Coral accent under the header", "Key facts on one ruled strip", "Totals are the last rows of the item table"], "best": "Agencies, services, consultancies"}, {"key": "monogram", "name": "Monogram", "colours": ["#14532d", "#a16207"], "font": "Lato", "idea": "Centred and symmetrical, with mirrored addresses and a round seal stamp.", "points": ["Ruled, letter-spaced title over the number", "Facts centred in one line", "Payment and totals as two mirrored halves"], "best": "Hospitality, retail, premium brands"}, {"key": "blueprint", "name": "Blueprint", "colours": ["#1d4ed8", "#0f172a"], "font": "Roboto", "idea": "An engineering title block with a dark header and footer, and numbered sections.", "points": ["Title block with every fact in one grid", "Numbered sections for addresses and terms", "Full grid lines, tabular figures"], "best": "Manufacturing, engineering, distribution"}, {"key": "duet", "name": "Duet", "colours": ["#6b21a8", "#e9d5ff"], "font": "Open Sans", "idea": "A filled summary card at the top, matched by a filled totals panel at the bottom.", "points": ["Dates, references and amount due in one card", "Notes sit beside the totals", "Totals panel echoes the card"], "best": "E-commerce, SaaS, consumer brands"}, {"key": "remit", "name": "Remit", "colours": ["#1f2937", "#c2410c"], "font": "Lato", "idea": "Document type and number in a bold header, boxed details and black label bars.", "points": ["Document type and number repeat in every page header", "Filled table header and zebra rows", "Dark header and footer, black label bars"], "best": "Wholesale, B2B, US-style billing"}, {"key": "route", "name": "Route", "colours": ["#0e7490", "#b45309"], "font": "Roboto", "idea": "A ticket-style header strip with a barcode stub to scan the document number.", "points": ["Number and key details in one ticket strip", "Code 128 barcode of the document number on every document", "Dashed tear-line styling"], "best": "Logistics, distribution, field services"}, {"key": "tally", "name": "Tally", "colours": ["#9f1239", "#334155"], "font": "Open Sans", "idea": "Numbered lines with a running total, and running quantity on stock documents, to check long lists fast.", "points": ["Running total column on priced documents", "Running quantity on delivery, picking and RFQ", "Heavier rule every five lines, double-ruled total"], "best": "Wholesale, long orders, accounts teams"}, {"key": "headline", "name": "Headline", "colours": ["#111111", "#a3e635"], "font": "Montserrat", "idea": "Typographic: a large document number on a black header, with a black footer.", "points": ["Large number, details in two columns beside it", "Large total with a highlight", "Black rules, lime highlight only"], "best": "Creative studios, startups, modern brands"}, {"key": "gallery", "name": "Gallery", "colours": ["#9a3412", "#fed7aa"], "font": "Lato", "idea": "Card-style rows with large product pictures, for businesses that sell by look.", "points": ["Large product pictures on every line", "Initials badge when a product has no image", "Soft sand summary panel"], "best": "Furniture, fashion, home goods, catalogues. Needs more pages on long orders"}, {"key": "swiss", "name": "Swiss", "colours": ["#111111", "#dc2626"], "font": "Roboto", "idea": "One strict label column down the whole page, black type and a single red accent.", "points": ["Document, Parties, Items, Payment and Terms rows", "Notes and totals side by side", "Large document title with a red full stop"], "best": "Consultancies, architects, professional services"}, {"key": "billbook", "name": "Bill Book", "colours": ["#1e3a8a", "#b91c1c"], "font": "Oswald + Lato", "idea": "The classic Indian printed bill book: firm name in red, blue rules, a tall ruled table and a signature box.", "points": [], "best": "Traders, wholesalers, shops"}, {"key": "stationery", "name": "Stationery", "colours": ["#0f766e", "#1f2937"], "font": "Nunito Sans", "idea": "Prints over your own background image: upload the company letterhead or pre-printed paper in the report settings.", "points": [], "best": "Any company with a letterhead or branded stationery"}, {"key": "billbook_dark", "name": "Bill Book Dark", "colours": ["#0f1f3d", "#fbbf24"], "font": "Oswald + Lato", "idea": "Bill Book on a dark navy band with the firm name in gold and a diamond border.", "points": [], "best": "Traders, wholesalers, shops"}, {"key": "midnight", "name": "Midnight", "colours": ["#0b1220", "#38bdf8"], "font": "Montserrat", "idea": "Dark band with the details as a strip of chips, address cards with filled tabs and a filled table head.", "points": [], "best": "Technology, electronics, agencies"}, {"key": "onyx", "name": "Onyx", "colours": ["#18181b", "#f59e0b"], "font": "Roboto", "idea": "Dark band with an amber title block, ruled address columns and the totals as the last rows of the table.", "points": [], "best": "Construction, hardware, industrial supply"}, {"key": "eclipse", "name": "Eclipse", "colours": ["#06281f", "#eab308"], "font": "Open Sans", "idea": "Dark band with a centred title between gold rules, a tinted address panel and totals in one horizontal bar.", "points": [], "best": "Finance, legal, premium services"}];
 var DOCS = [["invoice", "Invoice"], ["invoice_long", "Invoice, 2 pages"], ["invoice_ar", "Invoice, Arabic RTL"], ["sale", "Sales Order"], ["rfq", "Request for Quotation"], ["po", "Purchase Order"], ["delivery", "Delivery Note"], ["picking", "Picking List"]];
 var state = { design: DESIGNS[0].key, doc: 'invoice' };
 try { var saved = JSON.parse(localStorage.getItem('rtd-state') || 'null'); if (saved) { state = saved; } } catch (e) {}
@@ -258,6 +268,8 @@ function pick(id, v) {
 function render() {
   seg('seg-design', DESIGNS.map(function (d) { return [d.key, d.name]; }), state.design, function (v) { state.design = v; render(); });
   seg('seg-doc', DOCS, state.doc, function (v) { state.doc = v; render(); });
+  var bgSel = document.querySelector('#odoo-cfg [data-k="bg"]');
+  if (!bgSel.touched) { bgSel.value = state.design === 'stationery' ? 'sample' : ''; }
   var cfg = {};
   document.querySelectorAll('#odoo-cfg [data-k]').forEach(function (el) {
     cfg[el.getAttribute('data-k')] = el.type === 'checkbox' ? el.checked : el.value;
@@ -270,9 +282,21 @@ function render() {
   document.getElementById('v-open').href = url;
   try { localStorage.setItem('rtd-state', JSON.stringify(state)); } catch (e) {}
 }
+document.querySelector('#odoo-cfg [data-k="bg"]').addEventListener('change', function () { this.touched = true; });
 document.querySelectorAll('#odoo-cfg [data-k]').forEach(function (el) {
   el.addEventListener('change', render);
   if (el.type === 'text' || el.type === 'number') { el.addEventListener('input', render); }
+});
+document.getElementById('bg-file').addEventListener('change', function () {
+  var f = this.files && this.files[0];
+  if (!f) { return; }
+  var rd = new FileReader();
+  rd.onload = function () {
+    try { localStorage.setItem('report_bg', rd.result); } catch (e) { alert('Image too large to keep in the browser. Try a smaller file.'); return; }
+    var bs = document.querySelector('#odoo-cfg [data-k="bg"]'); bs.value = 'custom'; bs.touched = true;
+    var fr = document.getElementById('frame'); fr.setAttribute('src', 'about:blank'); render();
+  };
+  rd.readAsDataURL(f);
 });
 function show(which) {
   var ov = which === 'ov';
